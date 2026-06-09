@@ -1,52 +1,41 @@
+/* STICKY HEADER */
 
-/* MOBILE MENU */
+window.addEventListener('scroll',function(){
 
-const menuBtn = document.querySelector('.mobile-toggle');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeBtn = document.getElementById('closeMenu');
+const nav = document.querySelector('.navbar');
 
-if(menuBtn){
-menuBtn.addEventListener('click',()=>{
-mobileMenu.classList.add('active');
-});
-}
+if(window.scrollY > 50){
 
-if(closeBtn){
-closeBtn.addEventListener('click',()=>{
-mobileMenu.classList.remove('active');
-});
-}
+nav.style.padding = '14px 0';
+nav.style.boxShadow = '0 10px 30px rgba(0,0,0,.15)';
 
-/* SCROLL ANIMATION */
-
-const observer = new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
-
-});
-
-},{threshold:.15});
-
-document.querySelectorAll('.fade-up').forEach(el=>{
-observer.observe(el);
-});
-
-/* STICKY NAV EFFECT */
-
-window.addEventListener('scroll',()=>{
-
-const nav=document.querySelector('.navbar');
-
-if(window.scrollY > 80){
-nav.style.padding='12px 0';
-nav.style.boxShadow='0 5px 20px rgba(0,0,0,.15)';
 }else{
-nav.style.padding='18px 0';
-nav.style.boxShadow='none';
+
+nav.style.padding = '20px 0';
+nav.style.boxShadow = 'none';
+
 }
+
+});
+
+/* SMOOTH SCROLL */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+anchor.addEventListener('click', function (e) {
+
+e.preventDefault();
+
+const target = document.querySelector(this.getAttribute('href'));
+
+if(target){
+
+target.scrollIntoView({
+behavior:'smooth'
+});
+
+}
+
+});
 
 });
