@@ -1,3 +1,4 @@
+
 /* MOBILE MENU */
 
 const menuBtn = document.querySelector('.mobile-toggle');
@@ -16,44 +17,36 @@ mobileMenu.classList.remove('active');
 });
 }
 
-/* STICKY HEADER */
+/* SCROLL ANIMATION */
 
-window.addEventListener('scroll',function(){
+const observer = new IntersectionObserver(entries=>{
 
-const nav = document.querySelector('.navbar');
+entries.forEach(entry=>{
 
-if(window.scrollY > 50){
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
 
-nav.style.padding = '14px 0';
-nav.style.boxShadow = '0 10px 30px rgba(0,0,0,.15)';
+});
 
+},{threshold:.15});
+
+document.querySelectorAll('.fade-up').forEach(el=>{
+observer.observe(el);
+});
+
+/* STICKY NAV EFFECT */
+
+window.addEventListener('scroll',()=>{
+
+const nav=document.querySelector('.navbar');
+
+if(window.scrollY > 80){
+nav.style.padding='12px 0';
+nav.style.boxShadow='0 5px 20px rgba(0,0,0,.15)';
 }else{
-
-nav.style.padding = '20px 0';
-nav.style.boxShadow = 'none';
-
+nav.style.padding='18px 0';
+nav.style.boxShadow='none';
 }
-
-});
-
-/* SMOOTH SCROLL */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-anchor.addEventListener('click', function (e) {
-
-e.preventDefault();
-
-const target = document.querySelector(this.getAttribute('href'));
-
-if(target){
-
-target.scrollIntoView({
-behavior:'smooth'
-});
-
-}
-
-});
 
 });
