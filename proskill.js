@@ -1,3 +1,21 @@
+/* MOBILE MENU */
+
+const menuBtn = document.querySelector('.mobile-toggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeBtn = document.getElementById('closeMenu');
+
+if(menuBtn){
+menuBtn.addEventListener('click',()=>{
+mobileMenu.classList.add('active');
+});
+}
+
+if(closeBtn){
+closeBtn.addEventListener('click',()=>{
+mobileMenu.classList.remove('active');
+});
+}
+
 /* STICKY HEADER */
 
 window.addEventListener('scroll',function(){
