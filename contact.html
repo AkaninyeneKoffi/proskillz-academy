@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+</head>
+<style>
+.contact-hero{
+padding:220px 0 150px;
+background:
+linear-gradient(rgba(22,27,44,.92),
+rgba(22,27,44,.92)),
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
+background-size:cover;
+background-position:center;
+text-align:center;
+}
+
+.contact-hero h1{
+font-size:65px;
+line-height:1.05;
+color:#fff;
+max-width:950px;
+margin:auto;
+margin-bottom:30px;
+}
+
+.contact-hero p{
+font-size:20px;
+color:#d7d7d7;
+max-width:800px;
+margin:auto;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:35px;
+margin-top:80px;
+}
+
+.contact-card{
+background:#fff;
+padding:50px 35px;
+border-radius:30px;
+text-align:center;
+box-shadow:
+0 15px 50px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.contact-card:hover{
+transform:translateY(-15px);
+}
+
+.contact-icon{
+font-size:50px;
+margin-bottom:25px;
+}
+
+.contact-form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:start;
+}
+
+.contact-form-card{
+background:#fff;
+padding:50px;
+border-radius:30px;
+box-shadow:
+0 15px 50px rgba(0,0,0,.08);
+}
+
+.form-group{
+margin-bottom:25px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+width:100%;
+padding:18px;
+border:1px solid #e5e5e5;
+border-radius:12px;
+font-size:16px;
+font-family:inherit;
+}
+
+.office-card{
+background:#fff;
+padding:60px;
+border-radius:30px;
+text-align:center;
+box-shadow:
+0 15px 50px rgba(0,0,0,.08);
+max-width:900px;
+margin:auto;
+}
+
+.map-container{
+margin-top:60px;
+overflow:hidden;
+border-radius:30px;
+box-shadow:
+0 15px 50px rgba(0,0,0,.08);
+}
+
+.contact-cta{
+padding:150px 0;
+background:var(--navy);
+text-align:center;
+}
+
+.contact-cta h2{
+font-size:45px;
+line-height:1.1;
+color:#fff;
+margin-bottom:30px;
+}
+
+.contact-cta p{
+font-size:20px;
+color:#d7d7d7;
+max-width:800px;
+margin:auto auto 40px;
+}
+
+@media(max-width:991px){
+
+.contact-grid,
+.contact-form-grid{
+grid-template-columns:1fr;
+}
+
+.contact-hero h1{
+font-size:48px;
+}
+
+.contact-cta h2{
+font-size:38px;
+}
+
+}
+</style>
+<body><section class="contact-hero">
+
+<div class="container">
+
+<div class="contact-hero-content">
+
+<span class="hero-tag">
+Get In Touch
+</span>
+
+<h1>
+Let's Discuss Your Training and Consulting Needs
+</h1>
+
+<p>
+Whether you're looking for professional training, corporate learning solutions, or business consulting support, our team is ready to help.
+</p>
+
+</div>
+
+</div>
+
+</section>
+<section class="contact-info reveal">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2 class="section-title">
+Contact Information
+</h2>
+
+<p>
+Reach out to us through any of the channels below.
+</p>
+
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<div class="contact-icon">
+📍
+</div>
+
+<h3>
+Office Address
+</h3>
+
+<p>
+Your Office Address Here<br>
+Lagos, Nigeria
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<div class="contact-icon">
+📞
+</div>
+
+<h3>
+Phone Number
+</h3>
+
+<p>
++234 XXX XXX XXXX<br>
++234 XXX XXX XXXX
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<div class="contact-icon">
+✉️
+</div>
+
+<h3>
+Email Address
+</h3>
+
+<p>
+info@proskillzacademy.com<br>
+training@proskillzacademy.com
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<div class="contact-icon">
+🕒
+</div>
+
+<h3>
+Working Hours
+</h3>
+
+<p>
+Monday – Friday<br>
+8:00 AM – 5:00 PM
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="contact-form-section reveal">
+
+<div class="container">
+
+<div class="contact-form-grid">
+
+<div>
+
+<h2 class="section-title">
+Send Us a Message
+</h2>
+
+<p>
+Fill out the form below and a member of our team will contact you shortly.
+</p>
+
+</div>
+
+<div class="contact-form-card">
+
+<form>
+
+<div class="form-group">
+<input type="text" placeholder="Full Name">
+</div>
+
+<div class="form-group">
+<input type="email" placeholder="Email Address">
+</div>
+
+<div class="form-group">
+<input type="text" placeholder="Phone Number">
+</div>
+
+<div class="form-group">
+<select>
+
+<option>
+Select Service
+</option>
+
+<option>
+Training Enquiry
+</option>
+
+<option>
+Corporate Training
+</option>
+
+<option>
+Consulting
+</option>
+
+<option>
+General Enquiry
+</option>
+
+</select>
+</div>
+
+<div class="form-group">
+<textarea rows="6" placeholder="Your Message"></textarea>
+</div>
+
+<button class="btn-primary">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="office-section reveal">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2 class="section-title">
+Our Office
+</h2>
+
+</div>
+
+<div class="office-card">
+
+<h3>
+ProSkillz Academy
+</h3>
+
+<p>
+Insert your office address here.
+
+You can also schedule virtual consultations and online meetings with our team.
+</p>
+
+</div>
+
+</div>
+
+</section>
+<section class="faq-section reveal">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+</div>
+
+<div class="faq-container">
+
+<div class="faq-item">
+
+<div class="faq-question">
+How quickly will I receive a response?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+<p>
+Our team usually responds within one business day.
+</p>
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+Can I request customized training?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+<p>
+Yes. We provide customized training programmes for organizations.
+</p>
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+Do you offer online consultations?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+<p>
+Yes. We offer virtual consultations and online training sessions.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="map-section reveal">
+
+<div class="container">
+
+<h2 class="section-title">
+Find Us
+</h2>
+
+<div class="map-container">
+
+<iframe
+src="https://www.google.com/maps/embed?pb="
+width="100%"
+height="500"
+style="border:0;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+<section class="contact-cta">
+
+<div class="container">
+
+<h2>
+Ready to Build Skills and Grow Your Business?
+</h2>
+
+<p>
+Speak with our team and discover the right learning and consulting solutions for your needs.
+</p>
+
+<div class="cta-buttons">
+
+<a href="#" class="btn-primary">
+Enroll in Training
+</a>
+
+<a href="#" class="btn-secondary-dark">
+Request Consultation
+</a>
+
+</div>
+
+</div>
+
+</section>
+</body>
+</html>
