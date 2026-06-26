@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Training</title>
+</head>
+<style>
+ .corporate-hero{
+padding:220px 0 150px;
+background:
+linear-gradient(rgba(22,27,44,.92),
+rgba(22,27,44,.92)),
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
+background-size:cover;
+background-position:center;
+}
+
+.corporate-hero-grid,
+.request-grid{
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:80px;
+align-items:center;
+}
+
+.corporate-hero h1{
+font-size:65px;
+line-height:1.05;
+color:#fff;
+margin-bottom:30px;
+}
+
+.corporate-hero p{
+font-size:20px;
+color:#d7d7d7;
+margin-bottom:40px;
+}
+
+.corporate-hero-image img{
+width:100%;
+border-radius:30px;
+box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.corporate-benefits-grid,
+.process-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:35px;
+}
+
+.benefit-card,
+.process-card{
+background:#fff;
+padding:45px;
+border-radius:30px;
+box-shadow:0 15px 50px rgba(0,0,0,.08);
+transition:.45s;
+}
+
+.benefit-card:hover,
+.process-card:hover{
+transform:translateY(-15px);
+}
+
+.process-number{
+font-size:28px;
+font-weight:800;
+color:var(--red);
+margin-bottom:20px;
+}
+
+.training-form{
+background:#fff;
+padding:50px;
+border-radius:30px;
+box-shadow:0 15px 50px rgba(0,0,0,.08);
+}
+
+.training-form input,
+.training-form textarea{
+width:100%;
+padding:18px;
+margin-bottom:20px;
+border:1px solid #e5e5e5;
+border-radius:12px;
+font-size:16px;
+}
+
+.corporate-cta{
+padding:150px 0;
+background:var(--navy);
+text-align:center;
+}
+
+.corporate-cta h2{
+font-size:45px;
+color:#fff;
+margin-bottom:25px;
+}
+
+.corporate-cta p{
+font-size:20px;
+color:#d7d7d7;
+max-width:800px;
+margin:auto auto 40px;
+}
+
+@media(max-width:991px){
+
+.corporate-hero-grid,
+.request-grid,
+.corporate-benefits-grid,
+.process-grid{
+grid-template-columns:1fr;
+}
+
+.corporate-hero h1{
+font-size:48px;
+}
+
+}
+</style>
+<body>
+
+<section class="corporate-hero">
+
+<div class="container">
+
+<div class="corporate-hero-grid">
+
+<div class="corporate-hero-content">
+
+<span class="hero-tag">
+Corporate Training Solutions
+</span>
+
+<h1>
+Customized Training Programmes That Improve Team Performance
+</h1>
+
+<p>
+We partner with organizations to design and deliver practical training solutions that improve employee capability, increase productivity, and align learning with business goals.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#request-training" class="btn-primary">
+Request Training
+</a>
+
+<a href="#" class="btn-secondary-dark">
+Speak With an Advisor
+</a>
+
+</div>
+
+</div>
+
+<div class="corporate-hero-image">
+
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="corporate-why reveal">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2 class="section-title">
+Why Invest in Corporate Training?
+</h2>
+
+<p>
+Organizations that invest in continuous learning achieve better performance, stronger employee engagement, and improved business results.
+</p>
+
+</div>
+
+<div class="corporate-benefits-grid">
+
+<div class="benefit-card">
+<h3>Improve Productivity</h3>
+<p>
+Equip employees with practical skills that improve efficiency and performance.
+</p>
+</div>
+
+<div class="benefit-card">
+<h3>Increase Employee Engagement</h3>
+<p>
+Develop confident, motivated, and high-performing teams.
+</p>
+</div>
+
+<div class="benefit-card">
+<h3>Support Business Growth</h3>
+<p>
+Align learning initiatives with organizational goals and objectives.
+</p>
+</div>
+
+<div class="benefit-card">
+<h3>Build Leadership Capacity</h3>
+<p>
+Develop future leaders and strengthen management capabilities.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="training-process reveal">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2 class="section-title">
+Our Corporate Training Process
+</h2>
+
+</div>
+
+<div class="process-grid">
+
+<div class="process-card">
+
+<div class="process-number">
+01
+</div>
+
+<h3>
+Training Needs Assessment
+</h3>
+
+<p>
+We identify your organization's learning requirements and objectives.
+</p>
+
+</div>
+
+<div class="process-card">
+
+<div class="process-number">
+02
+</div>
+
+<h3>
+Programme Design
+</h3>
+
+<p>
+Customized training solutions are developed to address specific business needs.
+</p>
+
+</div>
+
+<div class="process-card">
+
+<div class="process-number">
+03
+</div>
+
+<h3>
+Training Delivery
+</h3>
+
+<p>
+Instructor-led sessions delivered online, on-site, or off-site.
+</p>
+
+</div>
+
+<div class="process-card">
+
+<div class="process-number">
+04
+</div>
+
+<h3>
+Evaluation & Support
+</h3>
+
+<p>
+We measure outcomes and provide post-training support.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="corporate-delivery reveal">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2 class="section-title">
+Flexible Delivery Options
+</h2>
+
+</div>
+
+<div class="delivery-grid">
+
+<div class="delivery-card">
+<div class="delivery-icon">🏢</div>
+<h3>In-House Training</h3>
+<p>Delivered at your office or preferred location.</p>
+</div>
+
+<div class="delivery-card">
+<div class="delivery-icon">💻</div>
+<h3>Virtual Training</h3>
+<p>Instructor-led online learning solutions.</p>
+</div>
+
+<div class="delivery-card">
+<div class="delivery-icon">🎓</div>
+<h3>Off-Site Training</h3>
+<p>Training at premium facilities with networking opportunities.</p>
+</div>
+
+<div class="delivery-card">
+<div class="delivery-icon">📍</div>
+<h3>Hybrid Learning</h3>
+<p>Combination of physical and virtual learning experiences.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="industries reveal">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2 class="section-title">
+Industries We Serve
+</h2>
+
+<p>
+We provide learning solutions across multiple industries.
+</p>
+
+</div>
+
+<div class="industry-grid">
+
+<div>Telecommunications</div>
+<div>Construction</div>
+<div>Real Estate</div>
+<div>Oil & Gas</div>
+<div>Banking</div>
+<div>Financial Services</div>
+<div>Information Technology</div>
+<div>Advertising</div>
+<div>Healthcare</div>
+<div>Power & Energy</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="request-training reveal" id="request-training">
+
+<div class="container">
+
+<div class="request-grid">
+
+<div>
+
+<h2 class="section-title">
+Request Corporate Training
+</h2>
+
+<p>
+Tell us about your training requirements and our team will contact you.
+</p>
+
+</div>
+
+<div class="training-form">
+
+<form>
+
+<input type="text" placeholder="Company Name">
+
+<input type="text" placeholder="Contact Person">
+
+<input type="email" placeholder="Email Address">
+
+<input type="text" placeholder="Phone Number">
+
+<input type="text" placeholder="Training Topic">
+
+<textarea rows="6" placeholder="Tell us about your training needs"></textarea>
+
+<button class="btn-primary">
+Submit Request
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="corporate-cta">
+
+<div class="container">
+
+<h2>
+Ready to Develop a High-Performing Team?
+</h2>
+
+<p>
+Partner with ProSkillz Academy to deliver practical learning solutions that create measurable business results.
+</p>
+
+<div class="cta-buttons">
+
+<a href="#" class="btn-primary">
+Request Training
+</a>
+
+<a href="#" class="btn-secondary-dark">
+Contact Us
+</a>
+
+</div>
+
+</div>
+
+</section>
+</body>
+</html>
