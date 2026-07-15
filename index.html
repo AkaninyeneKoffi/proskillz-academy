@@ -7,26 +7,583 @@
 <title>ProSkillz Academy</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="proskill.css">
+<style>
+  /* =========================================
+   TOKENS
+========================================= */
+:root{
+  --red:#EC3237;
+  --navy:#161B2C;
+  --gold:#C89B3C;
+  --light:#F7F7F7;
+  --white:#FFFFFF;
+  --text:#4A4A4A;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+  color:var(--text);
+  overflow-x:hidden;
+  font-size:15px;
+}
+
+.container{
+  width:88%;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* Global section breathing room — tight, not billboard */
+section{ padding:60px 0; }
+
+h1,h2,h3,h4{ color:var(--navy); font-weight:700; line-height:1.25; }
+p{ margin-bottom:16px; }
+a{ text-decoration:none; }
+
+.btn-primary{
+  background:var(--red);
+  color:#fff;
+  padding:12px 26px;
+  border-radius:6px;
+  display:inline-block;
+  font-weight:600;
+  font-size:14px;
+  transition:.3s;
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(236,50,55,.35); }
+
+.btn-secondary{
+  border:2px solid #fff;
+  padding:12px 26px;
+  border-radius:6px;
+  display:inline-block;
+  font-weight:600;
+  font-size:14px;
+  color:#fff;
+  transition:.3s;
+}
+.btn-secondary:hover{ background:rgba(255,255,255,.12); }
+
+.section-title{ font-size:28px; margin-bottom:12px; }
+.section-subtitle{ max-width:620px; margin:0 auto; font-size:15px; color:var(--text); }
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+.navbar{
+  position:fixed; top:0; left:0; width:100%;
+  z-index:999;
+  background:rgba(22,27,44,.96);
+  backdrop-filter:blur(10px);
+  padding:14px 0;
+}
+.nav-wrapper{ display:flex; justify-content:space-between; align-items:center; }
+.nav-left{ display:flex; align-items:center; gap:26px; }
+.logo{ font-size:24px; font-weight:800; color:#fff; display:flex; align-items:center; }
+.logo span{ color:var(--red); }
+.logo img{ height:46px; width:auto; display:block; }
+.nav-links{ display:flex; gap:26px; align-items:center; }
+.nav-links a{ color:#fff; font-weight:500; font-size:14px; }
+.nav-links a:hover{ color:var(--red); }
+.nav-cta{ background:var(--red); padding:10px 20px; border-radius:6px; color:#fff !important; font-weight:600; }
+.mobile-toggle{ display:none; font-size:26px; color:#fff; cursor:pointer; }
+
+
+/* =========================================
+   HERO
+========================================= */
+.hero{
+  background:
+    linear-gradient(rgba(22,27,44,.88),rgba(22,27,44,.88)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  padding-top:80px;
+  padding-bottom:50px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:40px;
+  align-items:center;
+}
+.hero-tag{
+  display:inline-block;
+  background:rgba(255,255,255,.1);
+  padding:6px 14px;
+  border-radius:30px;
+  color:var(--gold);
+  margin-bottom:14px;
+  font-weight:600;
+  font-size:12px;
+}
+.hero h1{ font-size:34px; color:#fff; margin-bottom:12px; }
+.hero p{ font-size:15px; color:#ddd; margin-bottom:20px; }
+.hero-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+
+.hero-image{
+  height:300px;
+  overflow:hidden;
+  border-radius:14px;
+}
+.hero-image img{
+  width:100%; height:100%;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 16px 40px rgba(0,0,0,.35);
+  display:block;
+}
+
+
+/* =========================================
+   TRUST BAR
+========================================= */
+.trust-bar{
+  background:#fff;
+  padding:28px 0;
+  box-shadow:0 4px 16px rgba(0,0,0,.05);
+}
+.trust-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.trust-item{ text-align:center; }
+.trust-item h3{ color:var(--red); font-size:26px; margin-bottom:4px; }
+.trust-item p{ margin:0; font-weight:600; font-size:13px; }
+
+
+/* =========================================
+   WHAT WE OFFER
+========================================= */
+.offering{ background:var(--light); padding:60px 0; }
+.offering-header{ text-align:center; margin-bottom:36px; }
+.offering-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+.offering-card{
+  background:#fff;
+  padding:24px 16px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 4px 18px rgba(0,0,0,.06);
+  transition:.3s;
+}
+.offering-card:hover{ transform:translateY(-6px); box-shadow:0 10px 28px rgba(0,0,0,.11); }
+.offering-icon{ font-size:32px; margin-bottom:12px; display:block; }
+.offering-card h4{ font-size:13px; margin-bottom:8px; color:var(--navy); line-height:1.3; }
+.offering-card p{ font-size:12px; color:var(--text); margin:0; }
+
+
+/* =========================================
+   ABOUT — image same height as text
+========================================= */
+.about{ background:#fff; padding:60px 0; }
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:stretch;
+}
+.about-image{
+  border-radius:16px;
+  overflow:hidden;
+  /* height matches the text column naturally via stretch */
+}
+.about-image img{
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+}
+.about-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.about-content h2{ font-size:28px; margin-bottom:16px; }
+.about-content p{ font-size:15px; margin-bottom:14px; }
+
+
+/* =========================================
+   INDUSTRIES
+========================================= */
+.industries{ background:var(--light); padding:60px 0; }
+.industry-header{ text-align:center; margin-bottom:36px; }
+.industry-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+.industry-track{ display:contents; }
+.industry-card{
+  background:#fff;
+  padding:22px 12px;
+  text-align:center;
+  border-radius:10px;
+  font-weight:600;
+  font-size:13px;
+  transition:.3s;
+  cursor:default;
+}
+.industry-card:hover{ background:var(--navy); color:#fff; transform:translateY(-6px); }
+/* second set of cards only exists for the small-screen slider; hidden on larger screens */
+.industry-card-dup{ display:none; }
+
+
+/* =========================================
+   CORE SERVICES
+========================================= */
+.services{ padding:60px 0; background:#fff; }
+.services-header{ text-align:center; max-width:680px; margin:0 auto 40px; }
+.services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+
+.service-card{
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 6px 28px rgba(0,0,0,.07);
+  transition:.35s;
+  border-top:4px solid transparent;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.service-card:hover{
+  transform:translateY(-7px);
+  border-top-color:var(--red);
+  box-shadow:0 14px 40px rgba(0,0,0,.12);
+}
+.service-img{ width:100%; height:160px; overflow:hidden; flex-shrink:0; }
+.service-img img{
+  width:100%; height:100%;
+  object-fit:cover; display:block; transition:.5s;
+}
+.service-card:hover .service-img img{ transform:scale(1.05); }
+
+.service-body{
+  padding:20px 22px 24px;
+  display:flex; flex-direction:column; flex:1;
+}
+.service-body h3{ font-size:17px; margin-bottom:10px; color:var(--navy); }
+.service-body p{ font-size:13.5px; flex:1; margin-bottom:8px; }
+.btn-service{
+  display:inline-block;
+  color:var(--red);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.2px;
+  transition:.2s;
+  align-self:flex-start;
+}
+.btn-service:hover{ color:var(--navy); letter-spacing:.5px; }
+
+
+/* =========================================
+   WHY US
+========================================= */
+.why-us{ background:var(--navy); padding:60px 0; }
+.why-header{ text-align:center; margin-bottom:40px; }
+.why-header h2{ color:#fff; font-size:28px; margin-bottom:12px; }
+.why-header p{ color:#d7d7d7; max-width:620px; margin:0 auto; font-size:15px; }
+.why-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+.why-card{
+  background:#22283d;
+  padding:26px 18px;
+  border-radius:12px;
+  text-align:center;
+  transition:.35s;
+}
+.why-card:hover{ transform:translateY(-6px); background:#2b324a; }
+.why-icon{ font-size:32px; margin-bottom:14px; color:var(--gold); display:block; }
+.why-card h4{ color:#fff; margin-bottom:10px; font-size:15px; }
+.why-card p{ color:#d6d6d6; font-size:13px; margin:0; }
+
+
+/* =========================================
+   DELIVERY
+========================================= */
+.delivery{ background:var(--light); padding:60px 0; }
+.delivery-header{ text-align:center; margin-bottom:36px; }
+.delivery-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.delivery-card{
+  background:#fff;
+  padding:30px 26px;
+  border-radius:14px;
+  text-align:center;
+  box-shadow:0 6px 24px rgba(0,0,0,.07);
+}
+.delivery-card h3{ margin-bottom:12px; font-size:18px; }
+.delivery-card p{ margin:0; font-size:14px; }
+.delivery-icon{ font-size:38px; margin-bottom:16px; color:var(--red); display:block; }
+
+
+/* =========================================
+   MISSION / VISION
+========================================= */
+.mission-vision{ padding:60px 0; background:#fff; }
+.mv-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.mv-card{
+  background:#fff;
+  padding:36px;
+  border-radius:14px;
+  box-shadow:0 6px 24px rgba(0,0,0,.07);
+  position:relative;
+  overflow:hidden;
+}
+.mv-card:before{
+  content:''; position:absolute; top:0; left:0;
+  width:100%; height:5px; background:var(--red);
+}
+.mv-card h3{ font-size:24px; margin-bottom:14px; color:var(--navy); }
+.mv-card p{ font-size:15px; margin-bottom:0; }
+
+
+/* =========================================
+   IMPACT
+========================================= */
+.impact{ padding:60px 0; background:var(--navy); }
+.impact-header{ text-align:center; margin-bottom:40px; }
+.impact-header h2{ color:#fff; margin-bottom:10px; font-size:28px; }
+.impact-header p{ color:#d5d5d5; margin:0; font-size:15px; }
+.impact-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+.impact-grid-centered{
+  grid-template-columns:repeat(3, minmax(180px,240px));
+  justify-content:center;
+}
+.impact-card{
+  text-align:center;
+  background:#22283d;
+  padding:30px 20px;
+  border-radius:14px;
+}
+.impact-number{ font-size:38px; font-weight:800; color:var(--gold); margin-bottom:10px; }
+.impact-text{ color:#fff; font-weight:600; font-size:13px; }
+
+
+/* =========================================
+   TESTIMONIALS
+========================================= */
+.testimonials{ padding:60px 0; background:var(--light); }
+.testimonial-header{ text-align:center; margin-bottom:36px; }
+.testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.testimonial-card{
+  background:#fff;
+  padding:28px;
+  border-radius:14px;
+  box-shadow:0 6px 22px rgba(0,0,0,.07);
+}
+.quote{ font-size:44px; color:var(--red); line-height:1; margin-bottom:14px; }
+.client-name{ font-weight:700; margin-top:18px; font-size:14px; }
+.client-role{ color:#777; font-size:13px; }
+
+
+/* =========================================
+   VIDEO TESTIMONIALS
+========================================= */
+.video-testimonials{ padding:60px 0; background:#fff; }
+.video-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.video-card{
+  background:var(--navy);
+  padding:36px 28px;
+  border-radius:14px;
+  text-align:center;
+  color:#fff;
+}
+.video-card h3{ color:#fff; margin-bottom:10px; font-size:17px; }
+.video-card p{ color:#d0d0d0; margin:0; font-size:13px; }
+.play-icon{ font-size:48px; margin-bottom:16px; color:var(--gold); display:block; }
+
+
+/* =========================================
+   CTA
+========================================= */
+.final-cta{ padding:70px 0; background:var(--light); text-align:center; }
+.final-cta h2{ font-size:30px; color:var(--navy); margin-bottom:14px; }
+.final-cta p{ max-width:620px; margin:0 auto 30px; font-size:15px; color:var(--text); }
+.cta-buttons{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+.btn-second{
+  border:2px solid var(--navy);
+  padding:12px 26px;
+  border-radius:6px;
+  display:inline-block;
+  font-weight:600;
+  font-size:14px;
+  color:var(--navy) !important;
+  transition:.3s;
+}
+.btn-second:hover{ background:var(--red); border-color:var(--red); color:#fff !important; transform:translateY(-2px); }
+
+
+/* =========================================
+   CONTACT
+========================================= */
+.contact-preview{ padding:60px 0; background:#fff; }
+.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+.contact-card{ background:var(--light); padding:32px; border-radius:14px; }
+.contact-card h3{ margin-bottom:20px; font-size:20px; }
+.contact-item{ margin-bottom:16px; }
+.contact-item strong{ display:block; margin-bottom:4px; color:var(--navy); font-size:13px; }
+
+
+/* =========================================
+   NEWSLETTER
+========================================= */
+.newsletter{ background:var(--red); padding:56px 0; text-align:center; }
+.newsletter h2{ color:#fff; margin-bottom:12px; font-size:24px; }
+.newsletter p{ color:#fff; max-width:580px; margin:0 auto 22px; font-size:14px; }
+.newsletter-form{ display:flex; justify-content:center; max-width:520px; margin:auto; }
+.newsletter-form input{ flex:1; padding:14px; border:none; outline:none; font-size:14px; }
+.newsletter-form button{
+  border:none; background:var(--navy); color:#fff;
+  padding:14px 28px; cursor:pointer; font-weight:600; font-size:14px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+.footer{ background:var(--navy); padding:60px 0 30px; color:#fff; }
+.footer-grid{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:36px; margin-bottom:40px; }
+.footer h4{ color:#fff; margin-bottom:16px; font-size:15px; }
+.footer p{ color:#d0d0d0; font-size:13px; }
+.footer ul{ list-style:none; padding:0; }
+.footer ul li{ margin-bottom:10px; }
+.footer ul li a{ color:#d0d0d0; font-size:13px; }
+.footer ul li a:hover{ color:var(--red); }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.15); padding-top:20px; text-align:center; color:#cfcfcf; font-size:13px; }
+
+
+/* =========================================
+   MOBILE MENU — slides from the LEFT so it
+   never covers the logo sitting on the right
+========================================= */
+.mobile-menu{
+  position:fixed; top:0; left:-280px; width:280px; height:100%;
+  background:var(--navy); z-index:1000; padding:44px 26px; transition:.4s;
+}
+.mobile-menu.active{ left:0; }
+.mobile-menu a{ display:block; color:#fff; padding:13px 0; border-bottom:1px solid rgba(255,255,255,.08); font-size:14px; }
+.mobile-close{ font-size:26px; color:#fff; margin-bottom:20px; cursor:pointer; }
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+.fade-up{ opacity:0; transform:translateY(30px); transition:.7s; }
+.fade-up.show{ opacity:1; transform:translateY(0); }
+
+@keyframes industry-slide{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+
+
+/* =========================================
+   RESPONSIVE — 991px
+========================================= */
+@media(max-width:991px){
+  .hero-grid,
+  .about-grid,
+  .mv-grid,
+  .contact-grid{ grid-template-columns:1fr; }
+
+  .hero h1{ font-size:28px; }
+  .hero-image{ height:240px; }
+
+  .trust-grid{ grid-template-columns:repeat(2,1fr); }
+  .offering-grid{ grid-template-columns:repeat(2,1fr); }
+
+  /* Industries: on small screens the cards slide through the screen
+     instead of sitting in a static grid */
+  .industry-grid{
+    display:block;
+    overflow:hidden;
+    grid-template-columns:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  }
+  .industry-track{
+    display:flex;
+    gap:16px;
+    width:max-content;
+    animation:industry-slide 22s linear infinite;
+  }
+  .industry-track:hover{ animation-play-state:paused; }
+  .industry-card{ flex:0 0 auto; width:150px; }
+  .industry-card-dup{ display:block; }
+
+  .services-grid{ grid-template-columns:repeat(2,1fr); }
+  .why-grid{ grid-template-columns:repeat(2,1fr); }
+  .impact-grid{ grid-template-columns:repeat(2,1fr); }
+  .delivery-grid,
+  .testimonial-grid,
+  .video-grid{ grid-template-columns:1fr; }
+
+  .nav-links{ display:none; }
+  .mobile-toggle{ display:block; }
+  .section-title{ font-size:24px; }
+
+  /* about image: fixed height when stacked */
+  .about-image{ height:280px; }
+}
+
+
+/* =========================================
+   RESPONSIVE — 600px
+========================================= */
+@media(max-width:600px){
+  .container{ width:92%; }
+  section{ padding:44px 0; }
+
+  .hero h1{ font-size:24px; }
+  .hero p{ font-size:14px; }
+  .hero-image{ height:200px; }
+  .hero-actions{ flex-direction:column; align-items:flex-start; }
+
+  .trust-grid,
+  .offering-grid,
+  .why-grid,
+  .impact-grid,
+  .services-grid,
+  .delivery-grid,
+  .testimonial-grid,
+  .video-grid{ grid-template-columns:1fr; }
+
+  .industry-card{ width:130px; }
+
+  .section-title{ font-size:22px; }
+
+  .newsletter-form{ flex-direction:column; }
+  .newsletter-form button{ width:100%; }
+
+  .final-cta h2{ font-size:22px; }
+  .cta-buttons{ flex-direction:column; align-items:center; gap:12px; }
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-second{ width:100%; max-width:300px; text-align:center; }
+
+  .footer-grid{ grid-template-columns:1fr; }
+}
+
+</style>
 </head>
 <body>
 
 
-<!-- NAVBAR (unchanged) -->
+<!-- NAVBAR — hamburger + links on the left, logo image on the right -->
 <header class="navbar">
   <div class="container nav-wrapper">
-    <div class="logo">Pro<span>Skillz</span></div>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="training.html">Training</a>
-      <a href="corporate.html">Corporate Training</a>
-      <a href="consulting.html">Consulting</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-      <a href="enroll.html" class="nav-cta">Enroll Now</a>
-    </nav>
-    <div class="mobile-toggle">☰</div>
+    <div class="nav-left">
+      <div class="mobile-toggle">☰</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="training.html">Training</a>
+        <a href="corporate.html">Corporate Training</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="enroll.html" class="nav-cta">Enroll Now</a>
+      </nav>
+    </div>
+    <div class="logo">
+      <img src="/image/pro.png" alt="ProSkillz Academy logo">
+    </div>
   </div>
 </header>
 
@@ -37,7 +594,7 @@
 
     <div class="hero-content">
       <div class="hero-tag">Professional Training & Business Consulting Solutions</div>
-      <h1>Build the Skills That Move Careers and Businesses Forward</h1>
+      <h1>We Build Skills That Move Careers and Businesses Forward</h1>
       <p>ProSkillz Academy provides practical training and consultancy solutions for professionals, SMEs, and corporate teams who want to improve performance, grow capacity, and achieve measurable results.</p>
       <div class="hero-actions">
         <a href="#industries" class="btn-primary">Industries We Serve</a>
@@ -83,7 +640,7 @@
   <div class="container">
     <div class="offering-header">
       <h2 class="section-title">What You Get With ProSkillz</h2>
-      <p class="section-subtitle">Every programme is designed with your growth in mind practical, flexible, and industry-relevant.</p>
+      <p class="section-subtitle">Every programme is designed with your growth in mind-practical, flexible, and industry relevant.</p>
     </div>
     <div class="offering-grid">
       <div class="offering-card">
@@ -104,7 +661,7 @@
       <div class="offering-card">
         <div class="offering-icon">✓</div>
         <h4>Certificate of Completion</h4>
-        <p>Recognised certification awarded to every participant who completes a ProSkillz Academy programme.</p>
+        <p>Certificates awarded to every participant who completes a ProSkillz Academy programme.</p>
       </div>
       <div class="offering-card">
         <div class="offering-icon">✓</div>
@@ -144,16 +701,29 @@
       <p class="section-subtitle">Our training and consulting solutions support professionals, SMEs, and corporate organizations across a wide range of sectors.</p>
     </div>
     <div class="industry-grid">
-      <div class="industry-card">Telecommunications</div>
-      <div class="industry-card">Construction</div>
-      <div class="industry-card">Real Estate</div>
-      <div class="industry-card">Oil & Gas</div>
-      <div class="industry-card">Banking</div>
-      <div class="industry-card">Financial Services</div>
-      <div class="industry-card">Information Technology</div>
-      <div class="industry-card">Healthcare</div>
-      <div class="industry-card">Power & Energy</div>
-      <div class="industry-card">Advertising</div>
+      <div class="industry-track">
+        <div class="industry-card">Telecommunications</div>
+        <div class="industry-card">Construction</div>
+        <div class="industry-card">Real Estate</div>
+        <div class="industry-card">Oil & Gas</div>
+        <div class="industry-card">Banking</div>
+        <div class="industry-card">Financial Services</div>
+        <div class="industry-card">Information Technology</div>
+        <div class="industry-card">Healthcare</div>
+        <div class="industry-card">Power & Energy</div>
+        <div class="industry-card">Advertising</div>
+        <!-- duplicate set: only shown/used on small screens, for a seamless loop -->
+        <div class="industry-card industry-card-dup" aria-hidden="true">Telecommunications</div>
+        <div class="industry-card industry-card-dup" aria-hidden="true">Construction</div>
+        <div class="industry-card industry-card-dup" aria-hidden="true">Real Estate</div>
+        <div class="industry-card industry-card-dup" aria-hidden="true">Oil & Gas</div>
+        <div class="industry-card industry-card-dup" aria-hidden="true">Banking</div>
+        <div class="industry-card industry-card-dup" aria-hidden="true">Financial Services</div>
+        <div class="industry-card industry-card-dup" aria-hidden="true">Information Technology</div>
+        <div class="industry-card industry-card-dup" aria-hidden="true">Healthcare</div>
+        <div class="industry-card industry-card-dup" aria-hidden="true">Power & Energy</div>
+        <div class="industry-card industry-card-dup" aria-hidden="true">Advertising</div>
+      </div>
     </div>
   </div>
 </section>
@@ -186,7 +756,7 @@
           <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Corporate In-House Training">
         </div>
         <div class="service-body">
-          <h3>Corporate Training & consulting</h3>
+          <h3>Corporate Training & Consulting</h3>
           <p>We design customized training programmes for organizations that want to train their teams at their office, preferred venue, or through a selected learning format.</p>
           <p>This option helps companies save cost, monitor learning outcomes, improve employee performance, and align training initiatives with strategic business goals.</p>
           <a href="corporate-training.html" class="btn-service">Request In-House Training →</a>
@@ -277,7 +847,7 @@
 </section>
 
 
-<!-- MISSION & VISION -->
+<!-- MISSION & VISION 
 <section class="mission-vision">
   <div class="container">
     <div class="mv-grid">
@@ -291,7 +861,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <!-- IMPACT -->
@@ -301,7 +871,7 @@
       <h2 class="section-title">Helping Professionals and Businesses Grow</h2>
       <p>Our focus is practical learning, measurable outcomes, and long-term business value.</p>
     </div>
-    <div class="impact-grid">
+    <div class="impact-grid impact-grid-centered">
       <div class="impact-card">
         <div class="impact-number">10+</div>
         <div class="impact-text">Industries Served</div>
@@ -310,10 +880,11 @@
         <div class="impact-number">100%</div>
         <div class="impact-text">Practical Learning Focus</div>
       </div>
+      <!--
       <div class="impact-card">
         <div class="impact-number">3</div>
         <div class="impact-text">Learning Delivery Options</div>
-      </div>
+      </div> -->
       <div class="impact-card">
         <div class="impact-number">∞</div>
         <div class="impact-text">Growth Opportunities</div>
@@ -401,13 +972,13 @@
     <div class="contact-grid">
       <div class="contact-card">
         <h3>Contact Information</h3>
-        <div class="contact-item">
+        <!--<div class="contact-item">
           <strong>Name</strong>
-          John Doe
-        </div>
+          John Doe 
+        </div>-->
         <div class="contact-item">
           <strong>Phone</strong>
-          +234 XXX XXX XXXX
+          +2347 04316 8077
         </div>
         <div class="contact-item">
           <strong>Email</strong>
@@ -415,7 +986,7 @@
         </div>
         <div class="contact-item">
           <strong>Office Address</strong>
-          Add official business address here.
+          2 Ben Chil Drive, Chevyview Estate, Lekki Lagos
         </div>
       </div>
       <div class="contact-card">
@@ -441,7 +1012,7 @@
 </section>
 
 
-<!-- FOOTER (unchanged) -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -464,18 +1035,18 @@
         <ul>
           <li><a href="#">Project Management</a></li>
           <li><a href="#">Business Development</a></li>
-          <li><a href="#">CRM</a></li>
-          <li><a href="#">Business Analysis</a></li>
+          <li><a href="#">Customer Service Experience</a></li>
+          <li><a href="#">Entrepreneurship</a></li>
           <li><a href="#">Leadership Training</a></li>
         </ul>
       </div>
       <div>
         <h4>Contact</h4>
         <ul>
-          <li>Phone Number</li>
-          <li>Email Address</li>
-          <li>Office Address</li>
-          <li>Business Hours</li>
+          <li>+2347 04316 8077</li>
+          <li>info@proskillzacademy.com</li>
+          <li>2 Ben Chil Drive, Chevyview Estate, Lekki Lagos</li>
+          <li>9am - 5pm</li>
         </ul>
       </div>
     </div>
@@ -486,7 +1057,7 @@
 </footer>
 
 
-<!-- MOBILE MENU (unchanged) -->
+<!-- MOBILE MENU — now slides in from the left -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-close" id="closeMenu">✕</div>
   <a href="#">Home</a>
@@ -498,6 +1069,24 @@
   <a href="#">Contact</a>
 </div>
 
-<script src="proskill.js"></script>
+<script >
+  // Mobile menu
+const toggle = document.querySelector('.mobile-toggle');
+const menu   = document.getElementById('mobileMenu');
+const close  = document.getElementById('closeMenu');
+
+if(toggle) toggle.addEventListener('click', () => menu.classList.add('active'));
+if(close)  close.addEventListener('click',  () => menu.classList.remove('active'));
+
+// Scroll fade-up
+const faders = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+}, { threshold: 0.15 });
+faders.forEach(el => observer.observe(el));
+
+</script>
 </body>
 </html>
+
+
