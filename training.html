@@ -1,1172 +1,900 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Training</title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training - ProSkillz Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 <style>
- .training-hero{
-padding:220px 0 150px;
-background:
-linear-gradient(rgba(22,27,44,.92),
-rgba(22,27,44,.92)),
-url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');
-background-size:cover;
-background-position:center;
-text-align:center;
+  /* =========================================
+   TOKENS  (shared with index.html / about.html)
+========================================= */
+:root{
+  --red:#EC3237;
+  --navy:#161B2C;
+  --gold:#C89B3C;
+  --light:#F7F7F7;
+  --white:#FFFFFF;
+  --text:#4A4A4A;
 }
 
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+  color:var(--text);
+  overflow-x:hidden;
+  font-size:15px;
+}
+
+.container{
+  width:88%;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+section{ padding:60px 0; }
+
+h1,h2,h3,h4{ color:var(--navy); font-weight:700; line-height:1.25; }
+p{ margin-bottom:16px; }
+a{ text-decoration:none; }
+
+.btn-primary{
+  background:var(--red);
+  color:#fff;
+  padding:12px 26px;
+  border-radius:6px;
+  display:inline-block;
+  font-weight:600;
+  font-size:14px;
+  transition:.3s;
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(236,50,55,.35); }
+
+.btn-secondary-dark{
+  border:2px solid #fff;
+  padding:12px 26px;
+  border-radius:6px;
+  color:#fff;
+  display:inline-block;
+  font-weight:600;
+  font-size:14px;
+  transition:.3s;
+}
+.btn-secondary-dark:hover{ background:rgba(255,255,255,.12); }
+
+.hero-tag{
+  color:var(--red);
+  font-weight:700;
+  display:block;
+  margin-bottom:16px;
+  font-size:14px;
+  letter-spacing:.3px;
+}
+
+.section-header{ text-align:center; max-width:700px; margin:0 auto; }
+.section-title{ font-size:32px; margin-bottom:12px; }
+.section-header p{ font-size:15px; color:var(--text); margin-bottom:0; }
+
+
+/* =========================================
+   NAVIGATION  (shared with index.html / about.html)
+========================================= */
+.navbar{
+  position:fixed; top:0; left:0; width:100%;
+  z-index:999;
+  background:rgba(22,27,44,.96);
+  backdrop-filter:blur(10px);
+  padding:14px 0;
+}
+.nav-wrapper{ display:flex; justify-content:space-between; align-items:center; }
+.logo{ font-size:24px; font-weight:800; color:#fff; display:flex; align-items:center; }
+.logo span{ color:var(--red); }
+.logo img{ height:46px; width:auto; display:block; }
+.nav-links{ display:flex; gap:26px; align-items:center; }
+.nav-links a{ color:#fff; font-weight:500; font-size:14px; }
+.nav-links a:hover{ color:var(--red); }
+.nav-cta{ background:var(--red); padding:10px 20px; border-radius:6px; color:#fff !important; font-weight:600; }
+.mobile-toggle{ display:none; font-size:26px; color:#fff; cursor:pointer; }
+
+
+/* ==================================
+   TRAINING HERO
+=================================== */
+.training-hero{
+  padding:200px 0 120px;
+  background:
+    linear-gradient(rgba(22,27,44,.92),rgba(22,27,44,.92)),
+    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=80');
+  background-size:cover;
+  background-position:center;
+  text-align:center;
+}
 .training-hero h1{
-font-size:65px;
-line-height:1.1;
-color:#fff;
-max-width:1000px;
-margin:auto;
-margin-bottom:30px;
+  font-size:48px;
+  line-height:1.15;
+  color:#fff;
+  max-width:900px;
+  margin:0 auto 20px;
 }
-
 .training-hero p{
-font-size:20px;
-color:#d7d7d7;
-max-width:850px;
-margin:auto;
-margin-bottom:40px;
+  font-size:16px;
+  color:#d7d7d7;
+  max-width:700px;
+  margin:0 auto 30px;
 }
-
 .hero-buttons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
 }
 
-.training-categories{
-background:#fff;
-}
 
+/* ==================================
+   TRAINING CATEGORIES
+=================================== */
+.training-categories{ background:#fff; }
 .category-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:35px;
-margin-top:80px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:50px;
 }
-
 .category-card{
-background:#fff;
-padding:45px;
-border-radius:25px;
-box-shadow:
-0 15px 50px rgba(0,0,0,.08);
-transition:.45s;
-position:relative;
-overflow:hidden;
+  background:#fff;
+  padding:32px;
+  border-radius:16px;
+  box-shadow:0 10px 32px rgba(0,0,0,.07);
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
 }
-
 .category-card::before{
-content:'';
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:0;
-background:
-linear-gradient(
-135deg,
-rgba(236,50,55,.08),
-transparent
-);
-transition:.5s;
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:0;
+  background:linear-gradient(135deg,rgba(236,50,55,.08),transparent);
+  transition:.5s;
 }
-
-.category-card:hover::before{
-height:100%;
-}
-
+.category-card:hover::before{ height:100%; }
 .category-card:hover{
-transform:translateY(-15px);
-box-shadow:
-0 30px 70px rgba(0,0,0,.12);
+  transform:translateY(-10px);
+  box-shadow:0 20px 48px rgba(0,0,0,.11);
 }
-
 .category-number{
-font-size:20px;
-font-weight:700;
-color:var(--red);
-margin-bottom:20px;
+  font-size:16px;
+  font-weight:700;
+  color:var(--red);
+  margin-bottom:14px;
+  position:relative;
 }
+.category-card h3{ font-size:19px; margin-bottom:12px; position:relative; }
+.category-card p{ font-size:14px; margin-bottom:0; position:relative; color:var(--text); }
 
-.category-card h3{
-font-size:28px;
-margin-bottom:20px;
-}
 
-@media(max-width:991px){
-
-.training-hero h1{
-font-size:48px;
-}
-
-.category-grid{
-grid-template-columns:1fr;
-}
-
-}
-/* ==========================
-FEATURED COURSES
-========================== */
-
-.featured-courses{
-background:#f7f7f7;
-}
-
+/* ==================================
+   FEATURED COURSES
+=================================== */
+.featured-courses{ background:var(--light); }
 .course-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:35px;
-margin-top:80px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:50px;
 }
-
 .course-card{
-background:#fff;
-border-radius:30px;
-overflow:hidden;
-box-shadow:
-0 15px 50px rgba(0,0,0,.08);
-transition:.5s;
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 10px 32px rgba(0,0,0,.07);
+  transition:.4s;
 }
-
 .course-card:hover{
-transform:translateY(-15px);
-box-shadow:
-0 35px 80px rgba(0,0,0,.15);
+  transform:translateY(-10px);
+  box-shadow:0 24px 52px rgba(0,0,0,.13);
 }
-
-.course-image{
-height:250px;
-overflow:hidden;
-}
-
+.course-image{ height:200px; overflow:hidden; }
 .course-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-transition:.7s;
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition:.6s;
 }
-
-.course-card:hover img{
-transform:scale(1.1);
-}
-
-.course-content{
-padding:35px;
-}
-
+.course-card:hover .course-image img{ transform:scale(1.08); }
+.course-content{ padding:26px; }
 .course-category{
-display:inline-block;
-background:rgba(236,50,55,.1);
-color:var(--red);
-padding:8px 18px;
-border-radius:30px;
-font-size:14px;
-font-weight:700;
-margin-bottom:20px;
+  display:inline-block;
+  background:rgba(236,50,55,.1);
+  color:var(--red);
+  padding:6px 14px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:14px;
 }
-
-.course-content h3{
-font-size:26px;
-line-height:1.3;
-margin-bottom:20px;
-}
-
+.course-content h3{ font-size:19px; line-height:1.3; margin-bottom:14px; }
 .course-meta{
-display:flex;
-gap:20px;
-margin-bottom:20px;
-font-size:15px;
-color:#666;
+  display:flex;
+  gap:16px;
+  margin-bottom:14px;
+  font-size:13px;
+  color:var(--text);
 }
-
-.course-content p{
-margin-bottom:30px;
-}
-
+.course-content p{ margin-bottom:18px; font-size:14px; }
 .course-btn{
-display:inline-block;
-text-decoration:none;
-font-weight:700;
-color:var(--red);
-position:relative;
+  display:inline-block;
+  font-weight:700;
+  font-size:13px;
+  color:var(--red);
+  position:relative;
 }
-
 .course-btn::after{
-content:'';
-position:absolute;
-left:0;
-bottom:-5px;
-width:0;
-height:2px;
-background:var(--red);
-transition:.4s;
+  content:'';
+  position:absolute;
+  left:0; bottom:-5px;
+  width:0; height:2px;
+  background:var(--red);
+  transition:.4s;
 }
+.course-card:hover .course-btn::after{ width:100%; }
 
-.course-card:hover .course-btn::after{
-width:100%;
-}
 
-/* ==========================
-WHY TRAIN WITH US
-========================== */
-
-.why-train{
-background:#fff;
-}
-
+/* ==================================
+   WHY TRAIN WITH US
+=================================== */
+.why-train{ background:#fff; }
 .why-train-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:80px;
-align-items:center;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
 }
-
-.why-train-image{
-overflow:hidden;
-border-radius:30px;
-}
-
-.why-train-image img{
-width:100%;
-transition:1s;
-}
-
-.why-train-image:hover img{
-transform:scale(1.08);
-}
-
+.why-train-image{ overflow:hidden; border-radius:16px; }
+.why-train-image img{ width:100%; display:block; transition:.7s; }
+.why-train-image:hover img{ transform:scale(1.06); }
+.why-train-content .section-title{ text-align:left; }
 .benefits{
-margin-top:40px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+  margin-top:26px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
 }
-
 .benefit-item{
-background:#f7f7f7;
-padding:22px;
-border-radius:15px;
-font-weight:600;
-transition:.4s;
+  background:var(--light);
+  padding:16px 18px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14px;
+  transition:.3s;
 }
-
 .benefit-item:hover{
-background:var(--red);
-color:#fff;
-transform:translateY(-8px);
+  background:var(--red);
+  color:#fff;
+  transform:translateY(-5px);
 }
 
-/* MOBILE */
 
-@media(max-width:991px){
-
-.course-grid{
-grid-template-columns:1fr;
-}
-
-.why-train-grid{
-grid-template-columns:1fr;
-}
-
-.benefits{
-grid-template-columns:1fr;
-}
-
-}
-/* ==========================
-DELIVERY OPTIONS
-========================== */
-
-.delivery-options{
-background:#f7f7f7;
-}
-
+/* ==================================
+   DELIVERY OPTIONS
+=================================== */
+.delivery-options{ background:var(--light); }
 .delivery-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:35px;
-margin-top:80px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  margin-top:50px;
 }
-
 .delivery-card{
-background:#fff;
-padding:50px 35px;
-border-radius:30px;
-text-align:center;
-box-shadow:
-0 15px 50px rgba(0,0,0,.08);
-transition:.45s;
+  background:#fff;
+  padding:34px 22px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 10px 32px rgba(0,0,0,.07);
+  transition:.4s;
 }
-
 .delivery-card:hover{
-transform:translateY(-15px);
-box-shadow:
-0 35px 80px rgba(0,0,0,.12);
+  transform:translateY(-10px);
+  box-shadow:0 20px 48px rgba(0,0,0,.11);
 }
+.delivery-icon{ font-size:38px; margin-bottom:16px; }
+.delivery-card h3{ font-size:17px; margin-bottom:12px; }
+.delivery-card p{ font-size:13.5px; margin-bottom:0; color:var(--text); }
 
-.delivery-icon{
-font-size:55px;
-margin-bottom:25px;
-}
 
-.delivery-card h3{
-font-size:26px;
-margin-bottom:20px;
-}
-
-/* ==========================
-CERTIFICATION SECTION
-========================== */
-
+/* ==================================
+   CERTIFICATION SECTION
+=================================== */
 .certification-section{
-padding:160px 0;
-background:
-linear-gradient(rgba(22,27,44,.92),
-rgba(22,27,44,.92)),
-url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3');
-background-size:cover;
-background-position:center;
-text-align:center;
+  padding:100px 0;
+  background:
+    linear-gradient(rgba(22,27,44,.92),rgba(22,27,44,.92)),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80');
+  background-size:cover;
+  background-position:center;
+  text-align:center;
 }
-
-.certification-content{
-max-width:900px;
-margin:auto;
-}
-
+.certification-content{ max-width:750px; margin:0 auto; }
 .certification-content h2{
-font-size:55px;
-line-height:1.1;
-color:#fff;
-margin-bottom:30px;
+  font-size:32px;
+  line-height:1.2;
+  color:#fff;
+  margin-bottom:18px;
 }
-
 .certification-content p{
-font-size:20px;
-color:#d7d7d7;
-margin-bottom:40px;
+  font-size:15px;
+  color:#d7d7d7;
+  margin-bottom:26px;
 }
 
-/* ==========================
-FAQ
-========================== */
 
-.faq-container{
-max-width:900px;
-margin:auto;
-margin-top:80px;
-}
-
+/* ==================================
+   FAQ
+=================================== */
+.faq-section{ background:#fff; }
+.faq-container{ max-width:750px; margin:50px auto 0; }
 .faq-item{
-background:#fff;
-border-radius:20px;
-box-shadow:
-0 10px 40px rgba(0,0,0,.06);
-margin-bottom:25px;
-overflow:hidden;
+  background:var(--light);
+  border-radius:14px;
+  box-shadow:0 6px 24px rgba(0,0,0,.06);
+  margin-bottom:16px;
+  overflow:hidden;
 }
-
 .faq-question{
-padding:30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-cursor:pointer;
-font-size:22px;
-font-weight:700;
-color:var(--navy);
+  padding:20px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:700;
+  color:var(--navy);
 }
+.faq-question span{ font-size:22px; color:var(--red); transition:.4s; }
+.faq-answer{ max-height:0; overflow:hidden; transition:.4s; }
+.faq-answer p{ padding:0 24px 20px; font-size:14px; margin-bottom:0; color:var(--text); }
+.faq-item.active .faq-answer{ max-height:220px; }
+.faq-item.active .faq-question span{ transform:rotate(45deg); }
 
-.faq-question span{
-font-size:30px;
-transition:.4s;
-}
 
-.faq-answer{
-max-height:0;
-overflow:hidden;
-transition:.5s;
-}
-
-.faq-answer p{
-padding:0 30px 30px;
-}
-
-.faq-item.active .faq-answer{
-max-height:250px;
-}
-
-.faq-item.active .faq-question span{
-transform:rotate(45deg);
-}
-
-/* ==========================
-CTA
-========================== */
-
-.training-cta{
-padding:150px 0;
-background:var(--navy);
-text-align:center;
-}
-
+/* ==================================
+   CTA
+=================================== */
+.training-cta{ padding:80px 0; background:var(--navy); text-align:center; }
 .training-cta h2{
-font-size:45px;
-line-height:1.1;
-color:#fff;
-max-width:850px;
-margin:auto;
-margin-bottom:30px;
+  font-size:30px;
+  line-height:1.2;
+  color:#fff;
+  max-width:700px;
+  margin:0 auto 14px;
 }
-
 .training-cta p{
-font-size:20px;
-color:#d7d7d7;
-max-width:800px;
-margin:auto;
-margin-bottom:40px;
+  font-size:15px;
+  color:#d7d7d7;
+  max-width:620px;
+  margin:0 auto 30px;
 }
+.cta-buttons{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
 
-/* MOBILE */
 
+/* =========================================
+   FOOTER  (shared with index.html / about.html)
+========================================= */
+.footer{ background:var(--navy); padding:60px 0 30px; color:#fff; }
+.footer-grid{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:36px; margin-bottom:40px; }
+.footer h4{ color:#fff; margin-bottom:16px; font-size:15px; }
+.footer p{ color:#d0d0d0; font-size:13px; }
+.footer ul{ list-style:none; padding:0; }
+.footer ul li{ margin-bottom:10px; }
+.footer ul li a{ color:#d0d0d0; font-size:13px; }
+.footer ul li a:hover{ color:var(--red); }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.15); padding-top:20px; text-align:center; color:#cfcfcf; font-size:13px; }
+
+
+/* =========================================
+   MOBILE MENU  (shared) — slides in from the
+   right, same side as the hamburger toggle
+========================================= */
+.mobile-menu{
+  position:fixed; top:0; right:-280px; width:280px; height:100%;
+  background:var(--navy); z-index:1000; padding:44px 26px; transition:.4s;
+}
+.mobile-menu.active{ right:0; }
+.mobile-menu a{ display:block; color:#fff; padding:13px 0; border-bottom:1px solid rgba(255,255,255,.08); font-size:14px; transition:.2s; }
+.mobile-menu a:hover{ color:var(--red); padding-left:6px; }
+.mobile-close{ font-size:26px; color:#fff; margin-bottom:20px; cursor:pointer; }
+
+
+/* =========================================
+   ANIMATION  (shared — .reveal renamed to
+   the site-wide .fade-up)
+========================================= */
+.fade-up{ opacity:0; transform:translateY(30px); transition:.7s; }
+.fade-up.show{ opacity:1; transform:translateY(0); }
+
+
+/* =========================================
+   RESPONSIVE — 991px
+========================================= */
 @media(max-width:991px){
+  .training-hero{ padding:160px 0 90px; }
+  .training-hero h1{ font-size:34px; }
+  .training-hero p{ font-size:15px; }
 
-.delivery-grid{
-grid-template-columns:1fr;
+  .category-grid,
+  .course-grid,
+  .why-train-grid,
+  .benefits,
+  .delivery-grid{ grid-template-columns:1fr; }
+
+  .why-train-content .section-title{ text-align:center; }
+
+  .certification-content h2{ font-size:26px; }
+  .training-cta h2{ font-size:24px; }
+  .faq-question{ font-size:14px; }
+
+  .nav-links{ display:none; }
+  .mobile-toggle{ display:block; }
+  .section-title{ font-size:24px; }
 }
 
-.certification-content h2{
-font-size:42px;
+
+/* =========================================
+   RESPONSIVE — 600px
+========================================= */
+@media(max-width:600px){
+  .container{ width:92%; }
+  section{ padding:44px 0; }
+
+  .training-hero{ padding:140px 0 70px; }
+  .training-hero h1{ font-size:26px; }
+  .hero-buttons{ flex-direction:column; align-items:center; }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary-dark{ width:100%; max-width:280px; text-align:center; }
+
+  .section-title{ font-size:22px; }
+
+  .certification-content h2{ font-size:22px; }
+  .training-cta h2{ font-size:22px; }
+  .cta-buttons{ flex-direction:column; align-items:center; gap:12px; }
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary-dark{ width:100%; max-width:280px; text-align:center; }
+
+  .footer-grid{ grid-template-columns:1fr; }
 }
 
-.training-cta h2{
-font-size:38px;
-}
-
-.faq-question{
-font-size:18px;
-}
-
-}
 </style>
+</head>
 <body>
+
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="container nav-wrapper">
+    <div class="logo">
+      <img src="image/pro.png" alt="ProSkillz Academy logo">
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="training.html">Training</a>
+      <a href="corporate.html">Corporate Training</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="enroll.html" class="nav-cta">Enroll Now</a>
+    </nav>
+    <div class="mobile-toggle">☰</div>
+  </div>
+</header>
+
+
 <!-- ==================================
 TRAINING PAGE
 PART 1
 HERO + TRAINING CATEGORIES
 =================================== -->
-
 <section class="training-hero">
-
-<div class="container">
-
-<div class="training-hero-content">
-
-<span class="hero-tag">
-Professional Training Programmes
-</span>
-
-<h1>
-Practical Professional Training Designed to Build Skills and Drive Results
-</h1>
-
-<p>
-Explore our instructor-led training programmes designed for professionals, SMEs, and corporate teams seeking practical, career-enhancing, and business-focused learning solutions.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#courses" class="btn-primary">
-Browse Courses
-</a>
-
-<a href="#" class="btn-secondary-dark">
-Request Corporate Training
-</a>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="training-hero-content">
+      <span class="hero-tag">Professional Training Programmes</span>
+      <h1>Practical Professional Training Designed to Build Skills and Drive Results</h1>
+      <p>Explore our instructor-led training programmes designed for professionals, SMEs, and corporate teams seeking practical, career-enhancing, and business-focused learning solutions.</p>
+      <div class="hero-buttons">
+        <a href="#courses" class="btn-primary">Browse Courses</a>
+        <a href="corporate.html" class="btn-secondary-dark">Request Corporate Training</a>
+      </div>
+    </div>
+  </div>
 </section>
+
 
 <!-- TRAINING CATEGORIES -->
+<section class="training-categories fade-up">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Training Categories</h2>
+      <p>Choose from our practical learning solutions designed for professionals and organizations.</p>
+    </div>
 
-<section class="training-categories reveal">
+    <div class="category-grid">
+      <div class="category-card">
+        <div class="category-number">01</div>
+        <h3>Agile Project Management</h3>
+        <p>Gain practical project delivery skills and prepare for globally recognized certifications.</p>
+      </div>
+      <div class="category-card">
+        <div class="category-number">02</div>
+        <h3>Business Development & Sales</h3>
+        <p>Develop strategic selling, negotiation, and revenue growth capabilities.</p>
+      </div>
+      <div class="category-card">
+        <div class="category-number">03</div>
+        <h3>Customer Relationship Management</h3>
+        <p>Improve customer experience, retention, and satisfaction.</p>
+      </div>
+      <div class="category-card">
+        <div class="category-number">04</div>
+        <h3>Business Analysis</h3>
+        <p>Learn practical techniques for identifying business needs and delivering solutions.</p>
+      </div>
+      <div class="category-card">
+        <div class="category-number">05</div>
+        <h3>Leadership Training</h3>
+        <p>Build communication, leadership, and people management skills.</p>
+      </div>
+      <div class="category-card">
+        <div class="category-number">06</div>
+        <h3>Certification Preparation</h3>
+        <p>Structured learning support for professional certification examinations.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="container">
 
-<div class="section-header">
-
-<h2 class="section-title">
-Training Categories
-</h2>
-
-<p>
-Choose from our practical learning solutions designed for professionals and organizations.
-</p>
-
-</div>
-
-<div class="category-grid">
-
-<div class="category-card">
-<div class="category-number">01</div>
-<h3>Agile Project Management</h3>
-<p>
-Gain practical project delivery skills and prepare for globally recognized certifications.
-</p>
-</div>
-
-<div class="category-card">
-<div class="category-number">02</div>
-<h3>Business Development & Sales</h3>
-<p>
-Develop strategic selling, negotiation, and revenue growth capabilities.
-</p>
-</div>
-
-<div class="category-card">
-<div class="category-number">03</div>
-<h3>Customer Relationship Management</h3>
-<p>
-Improve customer experience, retention, and satisfaction.
-</p>
-</div>
-
-<div class="category-card">
-<div class="category-number">04</div>
-<h3>Business Analysis</h3>
-<p>
-Learn practical techniques for identifying business needs and delivering solutions.
-</p>
-</div>
-
-<div class="category-card">
-<div class="category-number">05</div>
-<h3>Leadership Training</h3>
-<p>
-Build communication, leadership, and people management skills.
-</p>
-</div>
-
-<div class="category-card">
-<div class="category-number">06</div>
-<h3>Certification Preparation</h3>
-<p>
-Structured learning support for professional certification examinations.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section> 
- <!-- ==================================
+<!-- ==================================
 FEATURED COURSES
 =================================== -->
-
-<section class="featured-courses reveal" id="courses">
-
-<div class="container">
-
-<div class="section-header">
-
-<h2 class="section-title">
-Featured Courses
-</h2>
-
-<p>
-Explore some of our most popular training programmes designed to help professionals improve performance and advance their careers.
-</p>
-
-</div>
-
-<div class="course-grid">
-
-<!-- Course 1 -->
-
-<div class="course-card">
-
-<div class="course-image">
-<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80">
-</div>
-
-<div class="course-content">
-
-<span class="course-category">
-Certification Prep
-</span>
-
-<h3>
-Project Management Professional (PMP) Preparation
-</h3>
-
-<div class="course-meta">
-
-<span>📅 5 Days</span>
-<span>💻 Online & Physical</span>
-
-</div>
-
-<p>
-Prepare confidently for globally recognized project management certifications through practical instructor-led sessions.
-</p>
-
-<a href="#" class="course-btn">
-Learn More
-</a>
-
-</div>
-
-</div>
-
-<!-- Course 2 -->
-
-<div class="course-card">
-
-<div class="course-image">
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80">
-</div>
-
-<div class="course-content">
-
-<span class="course-category">
-Project Management
-</span>
-
-<h3>
-Agile Project Management Fundamentals
-</h3>
-
-<div class="course-meta">
-
-<span>📅 3 Days</span>
-<span>💻 Online & Physical</span>
-
-</div>
-
-<p>
-Learn modern project management principles, agile frameworks, and practical techniques for successful delivery.
-</p>
-
-<a href="#" class="course-btn">
-Learn More
-</a>
-
-</div>
-
-</div>
-
-<!-- Course 3 -->
-
-<div class="course-card">
-
-<div class="course-image">
-<img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80">
-</div>
-
-<div class="course-content">
-
-<span class="course-category">
-Customer Relationship
-</span>
-
-<h3>
-Customer Relationship Management Excellence
-</h3>
-
-<div class="course-meta">
-
-<span>📅 2 Days</span>
-<span>💻 Online & Physical</span>
-
-</div>
-
-<p>
-Build customer service excellence and learn practical techniques for improving customer experience.
-</p>
-
-<a href="#" class="course-btn">
-Learn More
-</a>
-
-</div>
-
-</div>
-
-<!-- Course 4 -->
-
-<div class="course-card">
-
-<div class="course-image">
-<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80">
-</div>
-
-<div class="course-content">
-
-<span class="course-category">
-Business Development
-</span>
-
-<h3>
-Business Development & Sales Masterclass
-</h3>
-
-<div class="course-meta">
-
-<span>📅 3 Days</span>
-<span>💻 Online & Physical</span>
-
-</div>
-
-<p>
-Learn practical strategies for winning clients, building relationships, and increasing revenue.
-</p>
-
-<a href="#" class="course-btn">
-Learn More
-</a>
-
-</div>
-
-</div>
-
-<!-- Course 5 -->
-
-<div class="course-card">
-
-<div class="course-image">
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80">
-</div>
-
-<div class="course-content">
-
-<span class="course-category">
-Leadership
-</span>
-
-<h3>
-Leadership & Team Performance
-</h3>
-
-<div class="course-meta">
-
-<span>📅 2 Days</span>
-<span>💻 Online & Physical</span>
-
-</div>
-
-<p>
-Develop leadership skills that improve communication, collaboration, and organizational performance.
-</p>
-
-<a href="#" class="course-btn">
-Learn More
-</a>
-
-</div>
-
-</div>
-
-<!-- Course 6 -->
-
-<div class="course-card">
-
-<div class="course-image">
-<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80">
-</div>
-
-<div class="course-content">
-
-<span class="course-category">
-Business Analysis
-</span>
-
-<h3>
-Business Analysis Essentials
-</h3>
-
-<div class="course-meta">
-
-<span>📅 4 Days</span>
-<span>💻 Online & Physical</span>
-
-</div>
-
-<p>
-Learn how to identify business needs and recommend practical solutions that create value.
-</p>
-
-<a href="#" class="course-btn">
-Learn More
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<section class="featured-courses fade-up" id="courses">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Featured Courses</h2>
+      <p>Explore some of our most popular training programmes designed to help professionals improve performance and advance their careers.</p>
+    </div>
+
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Project Management Professional preparation">
+        </div>
+        <div class="course-content">
+          <span class="course-category">Certification Prep</span>
+          <h3>Project Management Professional (PMP) Preparation</h3>
+          <div class="course-meta">
+            <span>📅 5 Days</span>
+            <span>💻 Online & Physical</span>
+          </div>
+          <p>Prepare confidently for globally recognized project management certifications through practical instructor-led sessions.</p>
+          <a href="#" class="course-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Agile project management fundamentals">
+        </div>
+        <div class="course-content">
+          <span class="course-category">Project Management</span>
+          <h3>Agile Project Management Fundamentals</h3>
+          <div class="course-meta">
+            <span>📅 3 Days</span>
+            <span>💻 Online & Physical</span>
+          </div>
+          <p>Learn modern project management principles, agile frameworks, and practical techniques for successful delivery.</p>
+          <a href="#" class="course-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80" alt="Customer relationship management excellence">
+        </div>
+        <div class="course-content">
+          <span class="course-category">Customer Relationship</span>
+          <h3>Customer Relationship Management Excellence</h3>
+          <div class="course-meta">
+            <span>📅 2 Days</span>
+            <span>💻 Online & Physical</span>
+          </div>
+          <p>Build customer service excellence and learn practical techniques for improving customer experience.</p>
+          <a href="#" class="course-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Business development and sales masterclass">
+        </div>
+        <div class="course-content">
+          <span class="course-category">Business Development</span>
+          <h3>Business Development & Sales Masterclass</h3>
+          <div class="course-meta">
+            <span>📅 3 Days</span>
+            <span>💻 Online & Physical</span>
+          </div>
+          <p>Learn practical strategies for winning clients, building relationships, and increasing revenue.</p>
+          <a href="#" class="course-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Leadership and team performance">
+        </div>
+        <div class="course-content">
+          <span class="course-category">Leadership</span>
+          <h3>Leadership & Team Performance</h3>
+          <div class="course-meta">
+            <span>📅 2 Days</span>
+            <span>💻 Online & Physical</span>
+          </div>
+          <p>Develop leadership skills that improve communication, collaboration, and organizational performance.</p>
+          <a href="#" class="course-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Business analysis essentials">
+        </div>
+        <div class="course-content">
+          <span class="course-category">Business Analysis</span>
+          <h3>Business Analysis Essentials</h3>
+          <div class="course-meta">
+            <span>📅 4 Days</span>
+            <span>💻 Online & Physical</span>
+          </div>
+          <p>Learn how to identify business needs and recommend practical solutions that create value.</p>
+          <a href="#" class="course-btn">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
 
 <!-- ==================================
 WHY TRAIN WITH US
 =================================== -->
+<section class="why-train fade-up">
+  <div class="container">
+    <div class="why-train-grid">
 
-<section class="why-train reveal">
+      <div class="why-train-image">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="ProSkillz Academy training session">
+      </div>
 
-<div class="container">
+      <div class="why-train-content">
+        <h2 class="section-title">Why Train With ProSkillz Academy</h2>
+        <p>We do more than deliver training programmes. We help individuals and organizations apply practical knowledge that drives measurable results.</p>
 
-<div class="why-train-grid">
+        <div class="benefits">
+          <div class="benefit-item">✔ Practical instructor-led learning</div>
+          <div class="benefit-item">✔ Experienced industry facilitators</div>
+          <div class="benefit-item">✔ Certificate of completion</div>
+          <div class="benefit-item">✔ Flexible delivery options</div>
+          <div class="benefit-item">✔ Industry-focused case studies</div>
+          <div class="benefit-item">✔ Corporate and individual learning solutions</div>
+        </div>
+      </div>
 
-<div class="why-train-image">
+    </div>
+  </div>
+</section>
 
-<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80">
 
-</div>
-
-<div class="why-train-content">
-
-<h2 class="section-title">
-Why Train With ProSkillz Academy
-</h2>
-
-<p>
-We do more than deliver training programmes. We help individuals and organizations apply practical knowledge that drives measurable results.
-</p>
-
-<div class="benefits">
-
-<div class="benefit-item">
-✔ Practical instructor-led learning
-</div>
-
-<div class="benefit-item">
-✔ Experienced industry facilitators
-</div>
-
-<div class="benefit-item">
-✔ Certificate of completion
-</div>
-
-<div class="benefit-item">
-✔ Flexible delivery options
-</div>
-
-<div class="benefit-item">
-✔ Industry-focused case studies
-</div>
-
-<div class="benefit-item">
-✔ Corporate and individual learning solutions
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section> 
 <!-- ==================================
 DELIVERY OPTIONS
 =================================== -->
+<section class="delivery-options fade-up">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Flexible Training Delivery Options</h2>
+      <p>Choose the learning format that best suits your schedule, team, and organizational goals.</p>
+    </div>
 
-<section class="delivery-options reveal">
-
-<div class="container">
-
-<div class="section-header">
-
-<h2 class="section-title">
-Flexible Training Delivery Options
-</h2>
-
-<p>
-Choose the learning format that best suits your schedule, team, and organizational goals.
-</p>
-
-</div>
-
-<div class="delivery-grid">
-
-<div class="delivery-card">
-
-<div class="delivery-icon">
-💻
-</div>
-
-<h3>
-Online Training
-</h3>
-
-<p>
-Participate in instructor-led virtual classes from anywhere while enjoying an engaging and interactive learning experience.
-</p>
-
-</div>
-
-<div class="delivery-card">
-
-<div class="delivery-icon">
-🏢
-</div>
-
-<h3>
-Corporate In-House Training
-</h3>
-
-<p>
-Customized training delivered directly at your office to meet your organization's specific learning objectives.
-</p>
-
-</div>
-
-<div class="delivery-card">
-
-<div class="delivery-icon">
-🎓
-</div>
-
-<h3>
-Off-Site Training
-</h3>
-
-<p>
-Attend programmes at premium training facilities and network with professionals from diverse industries.
-</p>
-
-</div>
-
-<div class="delivery-card">
-
-<div class="delivery-icon">
-📍
-</div>
-
-<h3>
-On-Site Training
-</h3>
-
-<p>
-Practical, instructor-led sessions delivered at selected locations to provide a collaborative learning environment.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="delivery-grid">
+      <div class="delivery-card">
+        <div class="delivery-icon">💻</div>
+        <h3>Online Training</h3>
+        <p>Participate in instructor-led virtual classes from anywhere while enjoying an engaging and interactive learning experience.</p>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">🏢</div>
+        <h3>Corporate In-House Training</h3>
+        <p>Customized training delivered directly at your office to meet your organization's specific learning objectives.</p>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">🎓</div>
+        <h3>Off-Site Training</h3>
+        <p>Attend programmes at premium training facilities and network with professionals from diverse industries.</p>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">📍</div>
+        <h3>On-Site Training</h3>
+        <p>Practical, instructor-led sessions delivered at selected locations to provide a collaborative learning environment.</p>
+      </div>
+    </div>
+  </div>
 </section>
+
 
 <!-- ==================================
 CERTIFICATION PREPARATION
 =================================== -->
-
-<section class="certification-section reveal">
-
-<div class="container">
-
-<div class="certification-content">
-
-<span class="hero-tag">
-Professional Certification Programmes
-</span>
-
-<h2>
-Preparing for a Professional Certification?
-</h2>
-
-<p>
-Our structured preparation programmes help professionals gain the knowledge, confidence, and practical understanding needed to succeed in globally recognized certification examinations.
-</p>
-
-<a href="#" class="btn-primary">
-Explore Certification Programmes
-</a>
-
-</div>
-
-</div>
-
+<section class="certification-section fade-up">
+  <div class="container">
+    <div class="certification-content">
+      <span class="hero-tag">Professional Certification Programmes</span>
+      <h2>Preparing for a Professional Certification?</h2>
+      <p>Our structured preparation programmes help professionals gain the knowledge, confidence, and practical understanding needed to succeed in globally recognized certification examinations.</p>
+      <a href="#" class="btn-primary">Explore Certification Programmes</a>
+    </div>
+  </div>
 </section>
+
 
 <!-- ==================================
 FAQ
 =================================== -->
+<section class="faq-section fade-up">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p>Find answers to common questions about our training programmes and learning solutions.</p>
+    </div>
 
-<section class="faq-section reveal">
+    <div class="faq-container">
 
-<div class="container">
+      <div class="faq-item">
+        <div class="faq-question">Do I receive a certificate?<span>+</span></div>
+        <div class="faq-answer"><p>Yes. Participants receive a certificate of completion after successfully participating in a training programme.</p></div>
+      </div>
 
-<div class="section-header">
+      <div class="faq-item">
+        <div class="faq-question">Are trainings available online?<span>+</span></div>
+        <div class="faq-answer"><p>Yes. Most of our programmes are available online, on-site, and off-site.</p></div>
+      </div>
 
-<h2 class="section-title">
-Frequently Asked Questions
-</h2>
+      <div class="faq-item">
+        <div class="faq-question">Can organizations request customized training?<span>+</span></div>
+        <div class="faq-answer"><p>Absolutely. We provide tailored corporate training programmes that align with organizational goals and learning requirements.</p></div>
+      </div>
 
-<p>
-Find answers to common questions about our training programmes and learning solutions.
-</p>
+      <div class="faq-item">
+        <div class="faq-question">How do I register for a course?<span>+</span></div>
+        <div class="faq-answer"><p>Simply select your preferred course and complete the registration form or contact our training advisors.</p></div>
+      </div>
 
-</div>
+      <div class="faq-item">
+        <div class="faq-question">Can I request private training?<span>+</span></div>
+        <div class="faq-answer"><p>Yes. Private and customized learning solutions are available for individuals and organizations.</p></div>
+      </div>
 
-<div class="faq-container">
-
-<div class="faq-item">
-
-<div class="faq-question">
-Do I receive a certificate?
-<span>+</span>
-</div>
-
-<div class="faq-answer">
-<p>
-Yes. Participants receive a certificate of completion after successfully participating in a training programme.
-</p>
-</div>
-
-</div>
-
-<div class="faq-item">
-
-<div class="faq-question">
-Are trainings available online?
-<span>+</span>
-</div>
-
-<div class="faq-answer">
-<p>
-Yes. Most of our programmes are available online, on-site, and off-site.
-</p>
-</div>
-
-</div>
-
-<div class="faq-item">
-
-<div class="faq-question">
-Can organizations request customized training?
-<span>+</span>
-</div>
-
-<div class="faq-answer">
-<p>
-Absolutely. We provide tailored corporate training programmes that align with organizational goals and learning requirements.
-</p>
-</div>
-
-</div>
-
-<div class="faq-item">
-
-<div class="faq-question">
-How do I register for a course?
-<span>+</span>
-</div>
-
-<div class="faq-answer">
-<p>
-Simply select your preferred course and complete the registration form or contact our training advisors.
-</p>
-</div>
-
-</div>
-
-<div class="faq-item">
-
-<div class="faq-question">
-Can I request private training?
-<span>+</span>
-</div>
-
-<div class="faq-answer">
-<p>
-Yes. Private and customized learning solutions are available for individuals and organizations.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
+
 
 <!-- ==================================
 CTA
 =================================== -->
-
-<section class="training-cta reveal">
-
-<div class="container">
-
-<h2>
-Ready to Build Skills That Create Real Results?
-</h2>
-
-<p>
-Whether you are looking to advance your career or train your team, ProSkillz Academy can help you choose the right learning solution.
-</p>
-
-<div class="cta-buttons">
-
-<a href="#" class="btn-primary">
-Enroll Now
-</a>
-
-<a href="#" class="btn-secondary-dark">
-Speak With a Training Advisor
-</a>
-
-</div>
-
-</div>
-
+<section class="training-cta fade-up">
+  <div class="container">
+    <h2>Ready to Build Skills That Create Real Results?</h2>
+    <p>Whether you are looking to advance your career or train your team, ProSkillz Academy can help you choose the right learning solution.</p>
+    <div class="cta-buttons">
+      <a href="enroll.html" class="btn-primary">Enroll Now</a>
+      <a href="contact.html" class="btn-secondary-dark">Speak With a Training Advisor</a>
+    </div>
+  </div>
 </section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>ProSkillz Academy</h4>
+        <p>ProSkillz Academy is a learning and development consulting company committed to helping professionals and organizations build practical skills that improve performance and drive growth.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="training.html">Training</a></li>
+          <li><a href="consulting.html">Consulting</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Training Categories</h4>
+        <ul>
+          <li><a href="#">Project Management</a></li>
+          <li><a href="#">Business Development</a></li>
+          <li><a href="#">Customer Service Experience</a></li>
+          <li><a href="#">Entrepreneurship</a></li>
+          <li><a href="#">Leadership Training</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>+2347 04316 8077</li>
+          <li>info@proskillzacademy.com</li>
+          <li>2 Ben Chil Drive, Chevyview Estate, Lekki Lagos</li>
+          <li>9am - 5pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 ProSkillz Academy. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-close" id="closeMenu">✕</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="training.html">Training</a>
+  <a href="corporate.html">Corporate Training</a>
+  <a href="consulting.html">Consulting</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+</div>
+
 <script>
-  
+  // Mobile menu
+const toggle = document.querySelector('.mobile-toggle');
+const menu   = document.getElementById('mobileMenu');
+const close  = document.getElementById('closeMenu');
 
-const faqItems =
-document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item=>{
-
-const question =
-item.querySelector('.faq-question');
-
-question.addEventListener('click',()=>{
-
-faqItems.forEach(faq=>{
-if(faq !== item){
-faq.classList.remove('active');
+if(toggle) toggle.addEventListener('click', () => menu.classList.add('active'));
+if(close)  close.addEventListener('click',  () => menu.classList.remove('active'));
+if(menu){
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => menu.classList.remove('active'));
+  });
 }
+
+// Scroll fade-up
+const faders = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+}, { threshold: 0.15 });
+faders.forEach(el => observer.observe(el));
+
+// FAQ accordion
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+  const question = item.querySelector('.faq-question');
+  question.addEventListener('click', () => {
+    faqItems.forEach(faq => { if(faq !== item) faq.classList.remove('active'); });
+    item.classList.toggle('active');
+  });
 });
-
-item.classList.toggle('active');
-
-});
-
-});
-
 </script>
 </body>
 </html>
