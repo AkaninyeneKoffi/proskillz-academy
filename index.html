@@ -81,7 +81,6 @@ a{ text-decoration:none; }
   padding:14px 0;
 }
 .nav-wrapper{ display:flex; justify-content:space-between; align-items:center; }
-.nav-left{ display:flex; align-items:center; gap:26px; }
 .logo{ font-size:24px; font-weight:800; color:#fff; display:flex; align-items:center; }
 .logo span{ color:var(--red); }
 .logo img{ height:46px; width:auto; display:block; }
@@ -449,14 +448,14 @@ a{ text-decoration:none; }
 
 
 /* =========================================
-   MOBILE MENU — slides from the LEFT so it
-   never covers the logo sitting on the right
+   MOBILE MENU — slides from the RIGHT, the
+   same side as the hamburger toggle
 ========================================= */
 .mobile-menu{
-  position:fixed; top:0; left:-280px; width:280px; height:100%;
+  position:fixed; top:0; right:-280px; width:280px; height:100%;
   background:var(--navy); z-index:1000; padding:44px 26px; transition:.4s;
 }
-.mobile-menu.active{ left:0; }
+.mobile-menu.active{ right:0; }
 .mobile-menu a{ display:block; color:#fff; padding:13px 0; border-bottom:1px solid rgba(255,255,255,.08); font-size:14px; transition:.2s; }
 .mobile-menu a:hover{ color:var(--red); padding-left:6px; }
 .mobile-close{ font-size:26px; color:#fff; margin-bottom:20px; cursor:pointer; }
@@ -565,25 +564,23 @@ a{ text-decoration:none; }
 <body>
 
 
-<!-- NAVBAR — hamburger + links on the left, logo image on the right -->
+<!-- NAVBAR — logo on the left, links + hamburger on the right (original layout) -->
 <header class="navbar">
   <div class="container nav-wrapper">
-    <div class="nav-left">
-      <div class="mobile-toggle">☰</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="training.html">Training</a>
-        <a href="corporate.html">Corporate Training</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-        <a href="enroll.html" class="nav-cta">Enroll Now</a>
-      </nav>
-    </div>
     <div class="logo">
-      <img src="image/pro.png" alt="ProSkillz Academy logo">
+      <img src="assets/logo.png" alt="ProSkillz Academy logo">
     </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="training.html">Training</a>
+      <a href="corporate.html">Corporate Training</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="enroll.html" class="nav-cta">Enroll Now</a>
+    </nav>
+    <div class="mobile-toggle">☰</div>
   </div>
 </header>
 
