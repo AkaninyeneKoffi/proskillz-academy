@@ -1,538 +1,696 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulting</title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulting - ProSkillz Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 <style>
- .consulting-hero{
-padding:220px 0 150px;
-background:
-linear-gradient(rgba(22,27,44,.92),
-rgba(22,27,44,.92)),
-url('https://images.unsplash.com/photo-1552664730-d307ca884978');
-background-size:cover;
-background-position:center;
+  /* =========================================
+   TOKENS  (shared across all pages)
+========================================= */
+:root{
+  --red:#EC3237;
+  --navy:#161B2C;
+  --gold:#C89B3C;
+  --light:#F7F7F7;
+  --white:#FFFFFF;
+  --text:#4A4A4A;
 }
 
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+  color:var(--text);
+  overflow-x:hidden;
+  font-size:15px;
+}
+
+.container{
+  width:88%;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+section{ padding:60px 0; }
+
+h1,h2,h3,h4{ color:var(--navy); font-weight:700; line-height:1.25; }
+p{ margin-bottom:16px; }
+a{ text-decoration:none; }
+
+.btn-primary{
+  background:var(--red);
+  color:#fff;
+  padding:12px 26px;
+  border-radius:6px;
+  display:inline-block;
+  border:none;
+  cursor:pointer;
+  font-family:inherit;
+  font-weight:600;
+  font-size:14px;
+  transition:.3s;
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(236,50,55,.35); }
+
+.btn-secondary-dark{
+  border:2px solid #fff;
+  padding:12px 26px;
+  border-radius:6px;
+  color:#fff;
+  display:inline-block;
+  font-weight:600;
+  font-size:14px;
+  transition:.3s;
+}
+.btn-secondary-dark:hover{ background:rgba(255,255,255,.12); }
+
+.hero-tag{
+  color:var(--red);
+  font-weight:700;
+  display:block;
+  margin-bottom:16px;
+  font-size:14px;
+  letter-spacing:.3px;
+}
+.hero-buttons{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+.cta-buttons{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+
+.section-header{ text-align:center; max-width:700px; margin:0 auto; }
+.section-title{ font-size:32px; margin-bottom:12px; }
+.section-header p{ font-size:15px; color:var(--text); margin-bottom:0; }
+
+
+/* =========================================
+   NAVIGATION  (shared across all pages)
+========================================= */
+.navbar{
+  position:fixed; top:0; left:0; width:100%;
+  z-index:999;
+  background:rgba(22,27,44,.96);
+  backdrop-filter:blur(10px);
+  padding:14px 0;
+}
+.nav-wrapper{ display:flex; justify-content:space-between; align-items:center; }
+.logo{ font-size:24px; font-weight:800; color:#fff; display:flex; align-items:center; }
+.logo span{ color:var(--red); }
+.logo img{ height:46px; width:auto; display:block; }
+.nav-links{ display:flex; gap:26px; align-items:center; }
+.nav-links a{ color:#fff; font-weight:500; font-size:14px; }
+.nav-links a:hover{ color:var(--red); }
+.nav-cta{ background:var(--red); padding:10px 20px; border-radius:6px; color:#fff !important; font-weight:600; }
+.mobile-toggle{ display:none; font-size:26px; color:#fff; cursor:pointer; }
+
+
+/* ==================================
+   CONSULTING HERO
+=================================== */
+.consulting-hero{
+  padding:200px 0 100px;
+  background:
+    linear-gradient(rgba(22,27,44,.92),rgba(22,27,44,.92)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=80');
+  background-size:cover;
+  background-position:center;
+}
 .consulting-hero-grid,
 .about-grid,
 .why-grid{
-display:grid;
-grid-template-columns:1.2fr 1fr;
-gap:80px;
-align-items:center;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:50px;
+  align-items:center;
 }
-
 .consulting-hero h1{
-font-size:65px;
-line-height:1.05;
-color:#fff;
-margin-bottom:30px;
+  font-size:42px;
+  line-height:1.15;
+  color:#fff;
+  margin-bottom:18px;
 }
-
 .consulting-hero p{
-font-size:20px;
-color:#d7d7d7;
-margin-bottom:40px;
+  font-size:16px;
+  color:#d7d7d7;
+  margin-bottom:26px;
 }
-
 .consulting-image img,
 .why-image img{
-width:100%;
-border-radius:30px;
-box-shadow:0 30px 80px rgba(0,0,0,.35);
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+  display:block;
 }
 
+
+/* ==================================
+   ABOUT / STATS
+=================================== */
+.consulting-about{ background:#fff; }
+.consulting-about .section-title{ font-size:28px; }
 .consulting-stats{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:30px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
 }
-
 .stat-card{
-background:#fff;
-padding:40px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 15px 50px rgba(0,0,0,.08);
-transition:.4s;
+  background:var(--light);
+  padding:28px 20px;
+  border-radius:16px;
+  text-align:center;
+  transition:.4s;
 }
-
 .stat-card:hover{
-transform:translateY(-10px);
+  transform:translateY(-8px);
+  background:#fff;
+  box-shadow:0 20px 48px rgba(0,0,0,.1);
+}
+.stat-card h3{ font-size:34px; color:var(--red); margin-bottom:8px; }
+.stat-card span{ font-size:13px; font-weight:600; color:var(--navy); }
+
+
+/* ==================================
+   CONSULTING SERVICES  (same pattern as
+   category-card / service-card elsewhere)
+=================================== */
+.consulting-services{ background:var(--light); }
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  margin-top:50px;
+}
+.service-card{
+  background:#fff;
+  padding:32px;
+  border-radius:16px;
+  box-shadow:0 10px 32px rgba(0,0,0,.07);
+  transition:.4s;
+}
+.service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 48px rgba(0,0,0,.11);
+}
+.service-number{
+  font-size:20px;
+  font-weight:800;
+  color:var(--red);
+  margin-bottom:14px;
+}
+.service-card h3{ font-size:18px; margin-bottom:10px; }
+.service-card p{ font-size:14px; margin-bottom:0; color:var(--text); }
+
+
+/* ==================================
+   WHY CHOOSE US
+=================================== */
+.consulting-why{ background:#fff; }
+.benefits{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.benefit-item{
+  background:var(--light);
+  padding:16px 18px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14px;
+  transition:.3s;
+}
+.benefit-item:hover{
+  background:var(--red);
+  color:#fff;
+  transform:translateY(-5px);
 }
 
-.stat-card h3{
-font-size:50px;
-color:var(--red);
-margin-bottom:15px;
-}
 
-.consulting-cta{
-padding:150px 0;
-background:var(--navy);
-text-align:center;
+/* ==================================
+   CONSULTING PROCESS  (same card style as
+   corporate.html's process cards)
+=================================== */
+.consulting-process{ background:var(--light); }
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  margin-top:50px;
 }
-
-.consulting-cta h2{
-font-size:45px;
-color:#fff;
-margin-bottom:25px;
+.process-card{
+  background:#fff;
+  padding:30px 24px;
+  border-radius:16px;
+  box-shadow:0 10px 32px rgba(0,0,0,.07);
+  transition:.4s;
 }
-
-.consulting-cta p{
-font-size:20px;
-color:#d7d7d7;
-max-width:800px;
-margin:auto auto 40px;
+.process-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 48px rgba(0,0,0,.11);
 }
+.process-number{
+  font-size:22px;
+  font-weight:800;
+  color:var(--red);
+  margin-bottom:14px;
+}
+.process-card h3{ font-size:17px; margin-bottom:10px; }
+.process-card p{ font-size:13.5px; margin-bottom:0; color:var(--text); }
 
+
+/* ==================================
+   CONSULTATION FORM  (same pattern as
+   corporate.html's request-training form)
+=================================== */
+.consultation-form-section{ background:#fff; }
+.request-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+.training-form{
+  background:var(--light);
+  padding:36px;
+  border-radius:16px;
+}
+.training-form input,
+.training-form textarea{
+  width:100%;
+  padding:14px 16px;
+  margin-bottom:16px;
+  border:1px solid #e5e5e5;
+  border-radius:10px;
+  font-size:14px;
+  font-family:inherit;
+  background:#fff;
+}
+.training-form input:focus,
+.training-form textarea:focus{
+  outline:none;
+  border-color:var(--red);
+}
+.training-form button{ width:100%; text-align:center; }
+
+
+/* ==================================
+   CTA
+=================================== */
+.consulting-cta{ padding:80px 0; background:var(--navy); text-align:center; }
+.consulting-cta h2{ font-size:30px; color:#fff; margin-bottom:14px; }
+.consulting-cta p{ font-size:15px; color:#d7d7d7; max-width:620px; margin:0 auto 30px; }
+
+
+/* =========================================
+   FOOTER  (shared across all pages)
+========================================= */
+.footer{ background:var(--navy); padding:60px 0 30px; color:#fff; }
+.footer-grid{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:36px; margin-bottom:40px; }
+.footer h4{ color:#fff; margin-bottom:16px; font-size:15px; }
+.footer p{ color:#d0d0d0; font-size:13px; }
+.footer ul{ list-style:none; padding:0; }
+.footer ul li{ margin-bottom:10px; }
+.footer ul li a{ color:#d0d0d0; font-size:13px; }
+.footer ul li a:hover{ color:var(--red); }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.15); padding-top:20px; text-align:center; color:#cfcfcf; font-size:13px; }
+
+
+/* =========================================
+   MOBILE MENU  (shared) — slides in from the
+   right, same side as the hamburger toggle
+========================================= */
+.mobile-menu{
+  position:fixed; top:0; right:-280px; width:280px; height:100%;
+  background:var(--navy); z-index:1000; padding:44px 26px; transition:.4s;
+}
+.mobile-menu.active{ right:0; }
+.mobile-menu a{ display:block; color:#fff; padding:13px 0; border-bottom:1px solid rgba(255,255,255,.08); font-size:14px; transition:.2s; }
+.mobile-menu a:hover{ color:var(--red); padding-left:6px; }
+.mobile-close{ font-size:26px; color:#fff; margin-bottom:20px; cursor:pointer; }
+
+
+/* =========================================
+   ANIMATION  (shared — .reveal renamed to
+   the site-wide .fade-up)
+========================================= */
+.fade-up{ opacity:0; transform:translateY(30px); transition:.7s; }
+.fade-up.show{ opacity:1; transform:translateY(0); }
+
+
+/* =========================================
+   RESPONSIVE — 991px
+========================================= */
 @media(max-width:991px){
+  .consulting-hero{ padding:160px 0 70px; }
+  .consulting-hero h1{ font-size:32px; }
 
-.consulting-hero-grid,
-.about-grid,
-.why-grid{
-grid-template-columns:1fr;
+  .consulting-hero-grid,
+  .about-grid,
+  .why-grid,
+  .service-grid,
+  .process-grid,
+  .request-grid{ grid-template-columns:1fr; }
+
+  .consulting-stats{ grid-template-columns:1fr; }
+  .benefits{ grid-template-columns:1fr; }
+
+  .nav-links{ display:none; }
+  .mobile-toggle{ display:block; }
+  .section-title{ font-size:24px; }
 }
 
-.consulting-stats{
-grid-template-columns:1fr;
+
+/* =========================================
+   RESPONSIVE — 600px
+========================================= */
+@media(max-width:600px){
+  .container{ width:92%; }
+  section{ padding:44px 0; }
+
+  .consulting-hero{ padding:140px 0 60px; }
+  .consulting-hero h1{ font-size:26px; }
+  .hero-buttons{ flex-direction:column; align-items:stretch; }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary-dark{ text-align:center; }
+
+  .section-title{ font-size:22px; }
+
+  .consulting-cta h2{ font-size:24px; }
+  .cta-buttons{ flex-direction:column; align-items:center; gap:12px; }
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary-dark{ width:100%; max-width:280px; text-align:center; }
+
+  .training-form{ padding:26px; }
+
+  .footer-grid{ grid-template-columns:1fr; }
 }
 
-.consulting-hero h1{
-font-size:48px;
-}
-
-}
 </style>
+</head>
 <body>
 
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="container nav-wrapper">
+    <div class="logo">
+      <img src="assets/logo.png" alt="ProSkillz Academy logo">
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="training.html">Training</a>
+      <a href="corporate.html">Corporate Training</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="enroll.html" class="nav-cta">Enroll Now</a>
+    </nav>
+    <div class="mobile-toggle">☰</div>
+  </div>
+</header>
+
+
+<!-- CONSULTING HERO -->
 <section class="consulting-hero">
-
-<div class="container">
-
-<div class="consulting-hero-grid">
-
-<div class="consulting-content">
-
-<span class="hero-tag">
-Business Consulting Solutions
-</span>
-
-<h1>
-Practical Consulting Solutions That Drive Business Growth
-</h1>
-
-<p>
-We partner with organizations to improve processes, strengthen operations, enhance performance, and build sustainable business growth through practical consulting solutions.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#consultation-form" class="btn-primary">
-Request Consultation
-</a>
-
-<a href="#" class="btn-secondary-dark">
-Speak With an Advisor
-</a>
-
-</div>
-
-</div>
-
-<div class="consulting-image">
-
-<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80">
-
-</div>
-
-</div>
-
-</div>
-
-</section> 
-<section class="consulting-about reveal">
-
-<div class="container">
-
-<div class="about-grid">
-
-<div>
-
-<h2 class="section-title">
-Business-Focused Consulting Solutions
-</h2>
-
-<p>
-ProSkillz Academy provides practical consulting services that help businesses improve efficiency, strengthen operations, and achieve measurable results.
-</p>
-
-<p>
-Whether you are a startup, SME, or established organization, our consulting approach focuses on identifying challenges, developing solutions, and supporting implementation.
-</p>
-
-</div>
-
-<div class="consulting-stats">
-
-<div class="stat-card">
-<h3>10+</h3>
-<span>Industries Served</span>
-</div>
-
-<div class="stat-card">
-<h3>100+</h3>
-<span>Professionals Trained</span>
-</div>
-
-<div class="stat-card">
-<h3>95%</h3>
-<span>Client Satisfaction</span>
-</div>
-
-<div class="stat-card">
-<h3>100%</h3>
-<span>Practical Solutions</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>  
-<section class="consulting-services reveal">
-
-<div class="container">
-
-<div class="section-header">
-
-<h2 class="section-title">
-Our Consulting Solutions
-</h2>
-
-<p>
-We provide consulting support that helps organizations improve performance and achieve sustainable growth.
-</p>
-
-</div>
-
-<div class="service-grid">
-
-<div class="service-card">
-
-<div class="service-number">
-01
-</div>
-
-<h3>
-Business Process Improvement
-</h3>
-
-<p>
-Analyze and improve business processes to increase efficiency and productivity.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<div class="service-number">
-02
-</div>
-
-<h3>
-HR Consulting
-</h3>
-
-<p>
-Improve workforce performance through practical human resource solutions.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<div class="service-number">
-03
-</div>
-
-<h3>
-Recruitment Support
-</h3>
-
-<p>
-Find and attract the right talent for your organization.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<div class="service-number">
-04
-</div>
-
-<h3>
-Business Restructuring
-</h3>
-
-<p>
-Redesign business operations to improve performance and growth.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<div class="service-number">
-05
-</div>
-
-<h3>
-Performance Advisory
-</h3>
-
-<p>
-Develop strategies that improve organizational effectiveness and productivity.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<div class="service-number">
-06
-</div>
-
-<h3>
-Corporate Strategy
-</h3>
-
-<p>
-Support organizations with planning and business growth strategies.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="consulting-hero-grid">
+
+      <div class="consulting-content">
+        <span class="hero-tag">Business Consulting Solutions</span>
+        <h1>Practical Consulting Solutions That Drive Business Growth</h1>
+        <p>We partner with organizations to improve processes, strengthen operations, enhance performance, and build sustainable business growth through practical consulting solutions.</p>
+        <div class="hero-buttons">
+          <a href="#consultation-form" class="btn-primary">Request Consultation</a>
+          <a href="contact.html" class="btn-secondary-dark">Speak With an Advisor</a>
+        </div>
+      </div>
+
+      <div class="consulting-image">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Business consulting session">
+      </div>
+
+    </div>
+  </div>
 </section>
-<section class="consulting-why reveal">
 
-<div class="container">
 
-<div class="why-grid">
+<!-- ABOUT / STATS -->
+<section class="consulting-about fade-up">
+  <div class="container">
+    <div class="about-grid">
 
-<div class="why-image">
+      <div>
+        <h2 class="section-title">Business-Focused Consulting Solutions</h2>
+        <p>ProSkillz Academy provides practical consulting services that help businesses improve efficiency, strengthen operations, and achieve measurable results.</p>
+        <p>Whether you are a startup, SME, or established organization, our consulting approach focuses on identifying challenges, developing solutions, and supporting implementation.</p>
+      </div>
 
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80">
+      <div class="consulting-stats">
+        <div class="stat-card">
+          <h3>10+</h3>
+          <span>Industries Served</span>
+        </div>
+        <div class="stat-card">
+          <h3>100+</h3>
+          <span>Professionals Trained</span>
+        </div>
+        <div class="stat-card">
+          <h3>95%</h3>
+          <span>Client Satisfaction</span>
+        </div>
+        <div class="stat-card">
+          <h3>100%</h3>
+          <span>Practical Solutions</span>
+        </div>
+      </div>
 
-</div>
-
-<div>
-
-<h2 class="section-title">
-Why Organizations Choose ProSkillz Academy
-</h2>
-
-<div class="benefits">
-
-<div class="benefit-item">
-✔ Practical, results-driven solutions
-</div>
-
-<div class="benefit-item">
-✔ Experienced consultants and facilitators
-</div>
-
-<div class="benefit-item">
-✔ Customer-focused approach
-</div>
-
-<div class="benefit-item">
-✔ Cross-industry experience
-</div>
-
-<div class="benefit-item">
-✔ Implementation support
-</div>
-
-<div class="benefit-item">
-✔ Long-term business partnerships
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
-<section class="consulting-process reveal">
 
-<div class="container">
 
-<div class="section-header">
+<!-- CONSULTING SERVICES -->
+<section class="consulting-services fade-up">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Consulting Solutions</h2>
+      <p>We provide consulting support that helps organizations improve performance and achieve sustainable growth.</p>
+    </div>
 
-<h2 class="section-title">
-Our Consulting Process
-</h2>
-
-</div>
-
-<div class="process-grid">
-
-<div class="process-card">
-
-<div class="process-number">
-01
-</div>
-
-<h3>
-Discovery
-</h3>
-
-<p>
-Understand your business challenges and goals.
-</p>
-
-</div>
-
-<div class="process-card">
-
-<div class="process-number">
-02
-</div>
-
-<h3>
-Assessment
-</h3>
-
-<p>
-Analyze processes and identify opportunities.
-</p>
-
-</div>
-
-<div class="process-card">
-
-<div class="process-number">
-03
-</div>
-
-<h3>
-Solution Design
-</h3>
-
-<p>
-Develop practical and measurable solutions.
-</p>
-
-</div>
-
-<div class="process-card">
-
-<div class="process-number">
-04
-</div>
-
-<h3>
-Implementation Support
-</h3>
-
-<p>
-Support execution and monitor outcomes.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3>Business Process Improvement</h3>
+        <p>Analyze and improve business processes to increase efficiency and productivity.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3>HR Consulting</h3>
+        <p>Improve workforce performance through practical human resource solutions.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3>Recruitment Support</h3>
+        <p>Find and attract the right talent for your organization.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <h3>Business Restructuring</h3>
+        <p>Redesign business operations to improve performance and growth.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <h3>Performance Advisory</h3>
+        <p>Develop strategies that improve organizational effectiveness and productivity.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <h3>Corporate Strategy</h3>
+        <p>Support organizations with planning and business growth strategies.</p>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="consultation-form-section reveal" id="consultation-form">
 
-<div class="container">
 
-<div class="request-grid">
+<!-- WHY CHOOSE US -->
+<section class="consulting-why fade-up">
+  <div class="container">
+    <div class="why-grid">
 
-<div>
+      <div class="why-image">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Consulting team collaborating">
+      </div>
 
-<h2 class="section-title">
-Request a Consultation
-</h2>
+      <div>
+        <h2 class="section-title">Why Organizations Choose ProSkillz Academy</h2>
+        <div class="benefits">
+          <div class="benefit-item">✔ Practical, results-driven solutions</div>
+          <div class="benefit-item">✔ Experienced consultants and facilitators</div>
+          <div class="benefit-item">✔ Customer-focused approach</div>
+          <div class="benefit-item">✔ Cross-industry experience</div>
+          <div class="benefit-item">✔ Implementation support</div>
+          <div class="benefit-item">✔ Long-term business partnerships</div>
+        </div>
+      </div>
 
-<p>
-Tell us about your business needs and our consultants will contact you.
-</p>
-
-</div>
-
-<div class="training-form">
-
-<form>
-
-<input type="text" placeholder="Company Name">
-
-<input type="text" placeholder="Contact Person">
-
-<input type="email" placeholder="Email Address">
-
-<input type="text" placeholder="Phone Number">
-
-<input type="text" placeholder="Consulting Service Required">
-
-<textarea rows="6" placeholder="Tell us about your business needs"></textarea>
-
-<button class="btn-primary">
-Request Consultation
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
-<section class="consulting-cta">
 
-<div class="container">
 
-<h2>
-Ready to Strengthen Your Business Performance?
-</h2>
+<!-- CONSULTING PROCESS -->
+<section class="consulting-process fade-up">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Consulting Process</h2>
+    </div>
 
-<p>
-Partner with ProSkillz Academy and discover practical consulting solutions that create measurable business results.
-</p>
-
-<div class="cta-buttons">
-
-<a href="#" class="btn-primary">
-Book a Consultation
-</a>
-
-<a href="#" class="btn-secondary-dark">
-Contact Us
-</a>
-
-</div>
-
-</div>
-
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-number">01</div>
+        <h3>Discovery</h3>
+        <p>Understand your business challenges and goals.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">02</div>
+        <h3>Assessment</h3>
+        <p>Analyze processes and identify opportunities.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">03</div>
+        <h3>Solution Design</h3>
+        <p>Develop practical and measurable solutions.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">04</div>
+        <h3>Implementation Support</h3>
+        <p>Support execution and monitor outcomes.</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+
+<!-- CONSULTATION FORM -->
+<section class="consultation-form-section fade-up" id="consultation-form">
+  <div class="container">
+    <div class="request-grid">
+
+      <div>
+        <h2 class="section-title">Request a Consultation</h2>
+        <p>Tell us about your business needs and our consultants will contact you.</p>
+      </div>
+
+      <div class="training-form">
+        <form>
+          <input type="text" placeholder="Company Name">
+          <input type="text" placeholder="Contact Person">
+          <input type="email" placeholder="Email Address">
+          <input type="text" placeholder="Phone Number">
+          <input type="text" placeholder="Consulting Service Required">
+          <textarea rows="6" placeholder="Tell us about your business needs"></textarea>
+          <button type="submit" class="btn-primary">Request Consultation</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="consulting-cta fade-up">
+  <div class="container">
+    <h2>Ready to Strengthen Your Business Performance?</h2>
+    <p>Partner with ProSkillz Academy and discover practical consulting solutions that create measurable business results.</p>
+    <div class="cta-buttons">
+      <a href="#consultation-form" class="btn-primary">Book a Consultation</a>
+      <a href="contact.html" class="btn-secondary-dark">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>ProSkillz Academy</h4>
+        <p>ProSkillz Academy is a learning and development consulting company committed to helping professionals and organizations build practical skills that improve performance and drive growth.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="training.html">Training</a></li>
+          <li><a href="consulting.html">Consulting</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Training Categories</h4>
+        <ul>
+          <li><a href="#">Project Management</a></li>
+          <li><a href="#">Business Development</a></li>
+          <li><a href="#">Customer Service Experience</a></li>
+          <li><a href="#">Entrepreneurship</a></li>
+          <li><a href="#">Leadership Training</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>+2347 04316 8077</li>
+          <li>info@proskillzacademy.com</li>
+          <li>2 Ben Chil Drive, Chevyview Estate, Lekki Lagos</li>
+          <li>9am - 5pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 ProSkillz Academy. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-close" id="closeMenu">✕</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="training.html">Training</a>
+  <a href="corporate.html">Corporate Training</a>
+  <a href="consulting.html">Consulting</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<script>
+  // Mobile menu
+const toggle = document.querySelector('.mobile-toggle');
+const menu   = document.getElementById('mobileMenu');
+const close  = document.getElementById('closeMenu');
+
+if(toggle) toggle.addEventListener('click', () => menu.classList.add('active'));
+if(close)  close.addEventListener('click',  () => menu.classList.remove('active'));
+if(menu){
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => menu.classList.remove('active'));
+  });
+}
+
+// Scroll fade-up
+const faders = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+}, { threshold: 0.15 });
+faders.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
