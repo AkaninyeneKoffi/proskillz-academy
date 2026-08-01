@@ -238,6 +238,51 @@ a{ text-decoration:none; }
 
 
 /* ==================================
+   TRAINING CALENDAR
+=================================== */
+.training-calendar{ background:#fff; }
+.calendar-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:50px;
+}
+.calendar-card{
+  background:var(--light);
+  border-radius:16px;
+  padding:28px 26px;
+  border-top:4px solid var(--red);
+  transition:.4s;
+}
+.calendar-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 48px rgba(0,0,0,.1);
+  background:#fff;
+}
+.calendar-category{
+  font-size:12px;
+  font-weight:700;
+  color:var(--red);
+  text-transform:uppercase;
+  letter-spacing:.4px;
+  margin-bottom:12px;
+}
+.calendar-card h3{ font-size:17px; margin-bottom:18px; line-height:1.3; }
+.calendar-details{ display:flex; flex-direction:column; gap:10px; }
+.calendar-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:13.5px;
+  color:var(--text);
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.calendar-row:last-child{ border-bottom:none; padding-bottom:0; }
+.calendar-row strong{ color:var(--navy); font-weight:600; }
+
+
+/* ==================================
    WHY TRAIN WITH US
 =================================== */
 .why-train{ background:#fff; }
@@ -415,6 +460,7 @@ a{ text-decoration:none; }
 
   .category-grid,
   .course-grid,
+  .calendar-grid,
   .why-train-grid,
   .benefits,
   .delivery-grid{ grid-template-columns:1fr; }
@@ -642,6 +688,53 @@ FEATURED COURSES
           </div>
           <p>Learn how to identify business needs and recommend practical solutions that create value.</p>
           <a href="#" class="course-btn">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================================
+2026 TRAINING CALENDAR
+=================================== -->
+<section class="training-calendar fade-up">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">2026 Training Calendar</h2>
+      <p>Upcoming weekend training dates for our most requested programmes.</p>
+    </div>
+
+    <div class="calendar-grid">
+
+      <div class="calendar-card">
+        <div class="calendar-category">Project Management Training</div>
+        <h3>6-Day PMP Project Management Training</h3>
+        <div class="calendar-details">
+          <div class="calendar-row"><span>Duration</span><strong>3 Weekends | Sat & Sun</strong></div>
+          <div class="calendar-row"><span>Start Date</span><strong>Sep 12th 2026</strong></div>
+          <div class="calendar-row"><span>End Date</span><strong>Sep 27th 2026</strong></div>
+        </div>
+      </div>
+
+      <div class="calendar-card">
+        <div class="calendar-category">Sales Training</div>
+        <h3>3-Day B2B Sales Mastery Course</h3>
+        <div class="calendar-details">
+          <div class="calendar-row"><span>Duration</span><strong>2 Weekends | Sat & Sun</strong></div>
+          <div class="calendar-row"><span>Start Date</span><strong>Oct 10th 2026</strong></div>
+          <div class="calendar-row"><span>End Date</span><strong>Oct 17th 2026</strong></div>
+        </div>
+      </div>
+
+      <div class="calendar-card">
+        <div class="calendar-category">Customer Service Training</div>
+        <h3>3-Day Customer Service Excellence Training</h3>
+        <div class="calendar-details">
+          <div class="calendar-row"><span>Duration</span><strong>2 Weekends | Sat & Sun</strong></div>
+          <div class="calendar-row"><span>Start Date</span><strong>Oct 31st 2026</strong></div>
+          <div class="calendar-row"><span>End Date</span><strong>Oct 31st 2026</strong></div>
         </div>
       </div>
 
