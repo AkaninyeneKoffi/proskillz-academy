@@ -386,6 +386,19 @@ a{ text-decoration:none; }
 .video-card h3{ color:#fff; margin-bottom:10px; font-size:17px; }
 .video-card p{ color:#d0d0d0; margin:0; font-size:13px; }
 .play-icon{ font-size:48px; margin-bottom:16px; color:var(--gold); display:block; }
+.video-embed{
+  max-width:780px;
+  margin:0 auto;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 16px 40px rgba(0,0,0,.15);
+}
+.video-embed-wrap{ position:relative; padding-bottom:56.25%; height:0; }
+.video-embed-wrap iframe{
+  position:absolute; top:0; left:0;
+  width:100%; height:100%;
+  border:0; display:block;
+}
 
 
 /* =========================================
@@ -624,6 +637,53 @@ a{ text-decoration:none; }
       <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Professional training session">
     </div>
 
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonial-header">
+      <h2 class="section-title">What Our Participants Say</h2>
+      <p class="section-subtitle">Feedback from professionals and organizations we've worked with.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="quote">"</div>
+        <p>Proskillz Academy's tutors break difficult project management concepts to easily digestible and applicable steps for even the not too experienced professional.</p>
+        <div class="client-name">Lawrence Kuroshi, PhD</div>
+        <div class="client-role">Environmental Manager • Nigerian Ports Authority Corporate Headquarters, Marina Lagos</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote">"</div>
+        <p>After the training and mentorship, I was able to secure two major deals with revenue above six figures and create a niche for my business.</p>
+        <div class="client-name">Singhto Fredrick Yobana</div>
+        <div class="client-role">Partner • SD Global Impact Services Ltd, Magodo, Lagos</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote">"</div>
+        <p>Since the training my ability to manage tasks has greatly improved. I'd definitely refer people to ProSkillz Academy whenever they need to acquire training and certifications.</p>
+        <div class="client-name">Shayo Israel</div>
+        <div class="client-role">Creative Director • 275wears</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VIDEO TESTIMONIALS -->
+<section class="video-testimonials">
+  <div class="container">
+    <div class="testimonial-header">
+      <h2 class="section-title">Video Testimonials</h2>
+      <p class="section-subtitle">Hear directly from our participants.</p>
+    </div>
+    <div class="video-embed">
+      <div class="video-embed-wrap">
+        <iframe src="https://www.youtube.com/embed/Fb7LKekrFMw" title="ProSkillz Academy video testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -912,63 +972,6 @@ a{ text-decoration:none; }
 </section>
 
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="container">
-    <div class="testimonial-header">
-      <h2 class="section-title">What Our Participants Say</h2>
-      <p class="section-subtitle">Feedback from professionals and organizations we've worked with.</p>
-    </div>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="quote">"</div>
-        <p>Proskillz Academy's tutors break difficult project management concepts to easily digestible and applicable steps for even the not too experienced professional.</p>
-        <div class="client-name">Lawrence Kuroshi, PhD</div>
-        <div class="client-role">Environmental Manager • Nigerian Ports Authority Corporate Headquarters, Marina Lagos</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="quote">"</div>
-        <p>ProSkillz Academy was a turning point for me. Before the programme I was struggling with direction / clients.</p>
-        <div class="client-name">Singhto Fredrick Yobana</div>
-        <div class="client-role">Partner • SD Global Impact Services Ltd, Magodo, Lagos</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="quote">"</div>
-        <p>More importantly, I've been able to apply the knowledge from ProSkillz Academy to my shoe production business.</p>
-        <div class="client-name">Shayo Israel</div>
-        <div class="client-role">Creative Director • 275wears</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- VIDEO TESTIMONIALS -->
-<section class="video-testimonials">
-  <div class="container">
-    <div class="testimonial-header">
-      <h2 class="section-title">Video Testimonials</h2>
-      <p class="section-subtitle">Embed YouTube videos or hosted video testimonials when available.</p>
-    </div>
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="play-icon">▶</div>
-        <h3>Video Testimonial 1</h3>
-        <p>YouTube video embed placeholder.</p>
-      </div>
-      <div class="video-card">
-        <div class="play-icon">▶</div>
-        <h3>Video Testimonial 2</h3>
-        <p>YouTube video embed placeholder.</p>
-      </div>
-      <div class="video-card">
-        <div class="play-icon">▶</div>
-        <h3>Video Testimonial 3</h3>
-        <p>YouTube video embed placeholder.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- FINAL CTA -->
