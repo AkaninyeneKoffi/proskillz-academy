@@ -223,20 +223,10 @@ a{ text-decoration:none; }
   background:var(--light);
   border-radius:16px;
   overflow:hidden;
-  display:grid;
-  grid-template-columns:240px 1fr;
   box-shadow:0 6px 24px rgba(0,0,0,.06);
   transition:.3s;
 }
 .trainer-card:hover{ box-shadow:0 16px 40px rgba(0,0,0,.1); }
-.trainer-photo{
-  background:#e9e9ea;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:100%;
-}
-.trainer-photo svg{ width:64px; height:64px; color:var(--navy); opacity:.3; }
 .trainer-info{ padding:30px 32px; }
 .trainer-info h3{ font-size:19px; margin-bottom:2px; }
 .trainer-credentials{
@@ -353,8 +343,6 @@ a{ text-decoration:none; }
 
   .story-grid{ grid-template-columns:1fr; gap:36px; }
   .mission-grid{ grid-template-columns:1fr; }
-  .trainer-card{ grid-template-columns:1fr; }
-  .trainer-photo{ min-height:200px; }
   .values-grid{ grid-template-columns:repeat(2,1fr); }
 
   /* Industries: same small-screen slider behaviour as index.html */
@@ -413,7 +401,7 @@ a{ text-decoration:none; }
 <header class="navbar">
   <div class="container nav-wrapper">
     <div class="logo">
-      <img src="image/pro.png" alt="ProSkillz Academy logo">
+      <img src="assets/logo.png" alt="ProSkillz Academy logo">
     </div>
     <nav class="nav-links">
       <a href="index.html">Home</a>
@@ -562,10 +550,6 @@ ABOUT PAGE HERO
 
       <!-- Lead Instructor 1 -->
       <div class="trainer-card">
-        <div class="trainer-photo">
-          <!-- photo goes here -->
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v2h16v-2c0-2.76-3.58-5-8-5Z"/></svg>
-        </div>
         <div class="trainer-info">
           <h3>Yemi Coker</h3>
           <span class="trainer-credentials">MSc, PMP, PRINCE2</span>
@@ -593,10 +577,6 @@ ABOUT PAGE HERO
 
       <!-- Lead Instructor 2 -->
       <div class="trainer-card">
-        <div class="trainer-photo">
-          <!-- photo goes here -->
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v2h16v-2c0-2.76-3.58-5-8-5Z"/></svg>
-        </div>
         <div class="trainer-info">
           <h3>Onoh Okechukwu</h3>
           <span class="trainer-credentials">PMP</span>
