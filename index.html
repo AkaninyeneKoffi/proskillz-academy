@@ -359,8 +359,21 @@ a{ text-decoration:none; }
 ========================================= */
 .testimonials{ padding:60px 0; background:var(--light); }
 .testimonial-header{ text-align:center; margin-bottom:36px; }
-.testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.testimonial-grid{
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.testimonial-track{
+  display:flex;
+  gap:22px;
+  width:max-content;
+  animation:testimonial-slide 32s linear infinite;
+}
+.testimonial-track:hover{ animation-play-state:paused; }
 .testimonial-card{
+  flex:0 0 auto;
+  width:340px;
   background:#fff;
   padding:28px;
   border-radius:14px;
@@ -369,6 +382,11 @@ a{ text-decoration:none; }
 .quote{ font-size:44px; color:var(--red); line-height:1; margin-bottom:14px; }
 .client-name{ font-weight:700; margin-top:18px; font-size:14px; }
 .client-role{ color:#777; font-size:13px; }
+
+@keyframes testimonial-slide{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
 
 
 /* =========================================
@@ -545,9 +563,9 @@ a{ text-decoration:none; }
   .why-grid{ grid-template-columns:repeat(2,1fr); }
   .impact-grid{ grid-template-columns:repeat(2,1fr); }
   .delivery-grid,
-  .testimonial-grid,
   .video-grid{ grid-template-columns:1fr; }
 
+  .testimonial-card{ width:300px; }
   .nav-links{ display:none; }
   .mobile-toggle{ display:block; }
   .section-title{ font-size:24px; }
@@ -575,9 +593,9 @@ a{ text-decoration:none; }
   .impact-grid,
   .services-grid,
   .delivery-grid,
-  .testimonial-grid,
   .video-grid{ grid-template-columns:1fr; }
 
+  .testimonial-card{ width:260px; }
   .industry-card{ width:130px; }
 
   .section-title{ font-size:22px; }
@@ -645,27 +663,48 @@ a{ text-decoration:none; }
 <section class="testimonials">
   <div class="container">
     <div class="testimonial-header">
-      <h2 class="section-title">What Our Participants Say</h2>
+      <h2 class="section-title">Success Stories</h2>
       <p class="section-subtitle">Feedback from professionals and organizations we've worked with.</p>
     </div>
     <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="quote">"</div>
-        <p>Proskillz Academy's tutors break difficult project management concepts to easily digestible and applicable steps for even the not too experienced professional.</p>
-        <div class="client-name">Lawrence Kuroshi, PhD</div>
-        <div class="client-role">Environmental Manager • Nigerian Ports Authority Corporate Headquarters, Marina Lagos</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="quote">"</div>
-        <p>After the training and mentorship, I was able to secure two major deals with revenue above six figures and create a niche for my business.</p>
-        <div class="client-name">Singhto Fredrick Yobana</div>
-        <div class="client-role">Partner • SD Global Impact Services Ltd, Magodo, Lagos</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="quote">"</div>
-        <p>Since the training my ability to manage tasks has greatly improved. I'd definitely refer people to ProSkillz Academy whenever they need to acquire training and certifications.</p>
-        <div class="client-name">Shayo Israel</div>
-        <div class="client-role">Creative Director • 275wears</div>
+      <div class="testimonial-track">
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>Proskillz Academy's tutors break difficult project management concepts to easily digestible and applicable steps for even the not too experienced professional.</p>
+          <div class="client-name">Lawrence Kuroshi, PhD</div>
+          <div class="client-role">Environmental Manager • Nigerian Ports Authority Corporate Headquarters, Marina Lagos</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>After the training and mentorship, I was able to secure two major deals with revenue above six figures and create a niche for my business.</p>
+          <div class="client-name">Singhto Fredrick Yobana</div>
+          <div class="client-role">Partner • SD Global Impact Services Ltd, Magodo, Lagos</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>Since the training my ability to manage tasks has greatly improved. I'd definitely refer people to ProSkillz Academy whenever they need to acquire training and certifications.</p>
+          <div class="client-name">Shayo Israel</div>
+          <div class="client-role">Creative Director • 275wears</div>
+        </div>
+        <!-- duplicate set: keeps the slide seamless on loop -->
+        <div class="testimonial-card" aria-hidden="true">
+          <div class="quote">"</div>
+          <p>Proskillz Academy's tutors break difficult project management concepts to easily digestible and applicable steps for even the not too experienced professional.</p>
+          <div class="client-name">Lawrence Kuroshi, PhD</div>
+          <div class="client-role">Environmental Manager • Nigerian Ports Authority Corporate Headquarters, Marina Lagos</div>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <div class="quote">"</div>
+          <p>After the training and mentorship, I was able to secure two major deals with revenue above six figures and create a niche for my business.</p>
+          <div class="client-name">Singhto Fredrick Yobana</div>
+          <div class="client-role">Partner • SD Global Impact Services Ltd, Magodo, Lagos</div>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <div class="quote">"</div>
+          <p>Since the training my ability to manage tasks has greatly improved. I'd definitely refer people to ProSkillz Academy whenever they need to acquire training and certifications.</p>
+          <div class="client-name">Shayo Israel</div>
+          <div class="client-role">Creative Director • 275wears</div>
+        </div>
       </div>
     </div>
   </div>
