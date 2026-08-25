@@ -678,7 +678,7 @@ a{ text-decoration:none; }
       <p class="section-subtitle">Feedback from professionals and organizations we've worked with.</p>
     </div>
     <div class="testimonial-grid">
-      <div class="testimonial-track">
+      <div class="testimonial-track" id="testimonialTrack">
         <div class="testimonial-card">
           <div class="quote">"</div>
           <p>Proskillz Academy's tutors break difficult project management concepts to easily digestible and applicable steps for even the not too experienced professional.</p>
@@ -692,31 +692,16 @@ a{ text-decoration:none; }
           <div class="client-role">Partner • SD Global Impact Services Ltd, Magodo, Lagos</div>
         </div>
         <div class="testimonial-card">
-          <div class="quote">"</div>
-          <p>Since the training my ability to manage tasks has greatly improved. I'd definitely refer people to ProSkillz Academy whenever they need to acquire training and certifications.</p>
-          <div class="client-name">Shayo Israel</div>
-          <div class="client-role">Creative Director • 275wears</div>
-        </div>
-        <!-- duplicate set: keeps the slide seamless on loop -->
-        <div class="testimonial-card" aria-hidden="true">
-          <div class="quote">"</div>
-          <p>Proskillz Academy's tutors break difficult project management concepts to easily digestible and applicable steps for even the not too experienced professional.</p>
-          <div class="client-name">Lawrence Kuroshi, PhD</div>
-          <div class="client-role">Environmental Manager • Nigerian Ports Authority Corporate Headquarters, Marina Lagos</div>
-        </div>
-        <div class="testimonial-card" aria-hidden="true">
-          <div class="quote">"</div>
-          <p>After the training and mentorship, I was able to secure two major deals with revenue above six figures and create a niche for my business.</p>
-          <div class="client-name">Singhto Fredrick Yobana</div>
-          <div class="client-role">Partner • SD Global Impact Services Ltd, Magodo, Lagos</div>
-        </div>
-        <div class="testimonial-card" aria-hidden="true">
           <div class="quote">"</div>
           <p>Since the training my ability to manage tasks has greatly improved. I'd definitely refer people to ProSkillz Academy whenever they need to acquire training and certifications.</p>
           <div class="client-name">Shayo Israel</div>
           <div class="client-role">Creative Director • 275wears</div>
         </div>
       </div>
+    </div>
+    <div class="slider-nav">
+      <div class="slider-btn" id="testimonialPrev" aria-label="Previous testimonial">‹</div>
+      <div class="slider-btn" id="testimonialNext" aria-label="Next testimonial">›</div>
     </div>
   </div>
 </section>
@@ -726,7 +711,7 @@ a{ text-decoration:none; }
 <section class="video-testimonials">
   <div class="container">
     <div class="testimonial-header">
-      <h2 class="section-title">Video Testimonials</h2>
+      <h2 class="section-title">Video Testimony</h2>
       <p class="section-subtitle">Hear directly from our participants.</p>
     </div>
     <div class="video-embed">
@@ -1164,6 +1149,22 @@ if(menu){
     link.addEventListener('click', () => menu.classList.remove('active'));
   });
 }
+
+// Testimonials click-to-slide (no auto-play)
+const testimonialTrack = document.getElementById('testimonialTrack');
+const testimonialPrev  = document.getElementById('testimonialPrev');
+const testimonialNext  = document.getElementById('testimonialNext');
+function testimonialStep(){
+  const card = testimonialTrack ? testimonialTrack.querySelector('.testimonial-card') : null;
+  const gap = 22;
+  return card ? card.offsetWidth + gap : 320;
+}
+if(testimonialPrev) testimonialPrev.addEventListener('click', () => {
+  testimonialTrack.scrollBy({ left: -testimonialStep(), behavior: 'smooth' });
+});
+if(testimonialNext) testimonialNext.addEventListener('click', () => {
+  testimonialTrack.scrollBy({ left: testimonialStep(), behavior: 'smooth' });
+});
 
 // Scroll fade-up
 const faders = document.querySelectorAll('.fade-up');
